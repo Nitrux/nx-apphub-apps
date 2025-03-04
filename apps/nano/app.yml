@@ -1,0 +1,19 @@
+buildinfo:
+  name: nano
+  version: latest
+  binarypath: /usr/bin/nano
+  distrorepo:
+    - distro: debian
+      release: testing
+      arch: amd64
+  deps:
+    - nano
+    - libc6
+    - libncursesw6
+    - libtinfo6
+  usewrapper: false
+
+apprunconf:
+  setpath: "/usr/bin"
+  setlibpath: "/usr/lib"
+  exec: "/usr/bin/nano"
