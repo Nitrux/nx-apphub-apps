@@ -1,3 +1,6 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
 buildinfo:
   name: nano
   version: latest
