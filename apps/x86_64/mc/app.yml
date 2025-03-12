@@ -18,6 +18,7 @@ buildinfo:
     - libslang2
     - libssh2-1t64
     - mc-data
+    - libslang2
   usewrapper: false
 
 apprunconf:
