@@ -17,6 +17,6 @@ buildinfo:
   usewrapper: false
 
 apprunconf:
-  setpath: "/bin"
-  setlibpath: "/lib"
-  exec: "/bin/nano"
+  setpath: "/usr/bin"
+  setlibpath: "/usr/lib"
+  exec: "/usr/bin/nano"
