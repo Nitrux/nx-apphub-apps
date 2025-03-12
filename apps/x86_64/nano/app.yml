@@ -3,11 +3,11 @@
 
 buildinfo:
   name: nano
-  version: 8.3-1
+  version: 7.2-1+deb12u1
   binarypath: /usr/bin/nano
   distrorepo:
     - distro: debian
-      release: testing
+      release: stable
       arch: amd64
   deps:
     - nano
