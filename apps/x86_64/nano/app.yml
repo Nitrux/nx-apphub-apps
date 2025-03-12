@@ -3,11 +3,11 @@
 
 buildinfo:
   name: nano
-  version: 8.3-1
-  binarypath: /usr/bin/nano
+  version: 7.2-1+deb12u1
+  binarypath: /bin/nano
   distrorepo:
     - distro: debian
-      release: testing
+      release: stable
       arch: amd64
   deps:
     - nano
@@ -17,6 +17,6 @@ buildinfo:
   usewrapper: false
 
 apprunconf:
-  setpath: "/usr/bin"
-  setlibpath: "/usr/lib"
-  exec: "/usr/bin/nano"
+  setpath: "/bin"
+  setlibpath: "/lib"
+  exec: "/bin/nano"
