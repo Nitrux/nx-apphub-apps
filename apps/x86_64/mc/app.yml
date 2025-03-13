@@ -10,15 +10,15 @@ buildinfo:
       release: testing
       arch: amd64
   deps:
-    - mc
     - libc6
     - libext2fs2t64
     - libglib2.0-0t64
     - libgpm2
     - libslang2
     - libssh2-1t64
-    - mc-data
     - libx11-6
+    - mc
+    - mc-data
   usewrapper: false
 
 apprunconf:

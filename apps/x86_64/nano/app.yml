@@ -10,10 +10,10 @@ buildinfo:
       release: testing
       arch: amd64
   deps:
-    - nano
     - libc6
     - libncursesw6
     - libtinfo6
+    - nano
   usewrapper: false
 
 apprunconf:
