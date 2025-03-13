@@ -7,7 +7,7 @@ buildinfo:
   binarypath: /usr/bin/fiery
   distrorepo:
     - distro: kde-neon
-      release: user
+      release: noble
       arch: amd64
   deps:
     - cask-server
