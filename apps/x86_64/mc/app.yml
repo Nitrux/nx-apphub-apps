@@ -10,9 +10,7 @@ buildinfo:
       release: testing
       arch: amd64
   deps:
-    - libc6
     - libext2fs2t64
-    - libglib2.0-0t64
     - libgpm2
     - libslang2
     - libssh2-1t64

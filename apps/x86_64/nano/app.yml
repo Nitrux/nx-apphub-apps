@@ -10,7 +10,6 @@ buildinfo:
       release: testing
       arch: amd64
   deps:
-    - libc6
     - libncursesw6
     - libtinfo6
     - nano
