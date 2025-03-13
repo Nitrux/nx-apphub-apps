@@ -23,6 +23,7 @@ buildinfo:
     - qml6-module-qtcore
     - qml6-module-qtquick-effects
     - qml6-module-qtwebengine
+    - libqt6sql6
   usewrapper: false
 
 apprunconf:
