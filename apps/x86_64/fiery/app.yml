@@ -9,7 +9,7 @@ buildinfo:
     - distro: nitrux
       release: trixie
       arch: amd64
-    - distro: debian
+    - distro: debian-snapshots
       release: testing
       arch: amd64
   deps:
@@ -21,7 +21,6 @@ buildinfo:
     - libb2-1
     - libbrotli1
     - libbz2-1.0
-    - libc6
     - libcanberra0
     - libcom-err2
     - libcurl3t64-gnutls
@@ -33,7 +32,6 @@ buildinfo:
     - libffi8
     - libfreetype6
     - libgcrypt20
-    - libglib2.0-0t64
     - libglvnd0
     - libgomp1
     - libgpg-error0
@@ -56,7 +54,7 @@ buildinfo:
     - libkrb5-3
     - libkrb5support0
     - liblcms2-2
-    - libldap2
+    - libldap-2.5-0
     - liblerc4
     - libltdl7
     - liblzma5
@@ -81,7 +79,6 @@ buildinfo:
     - libqt6opengl6
     - libqt6positioning6
     - libqt6qml6
-    - libqt6qmlmeta6
     - libqt6qmlmodels6
     - libqt6qmlworkerscript6
     - libqt6quick6
@@ -139,9 +136,11 @@ buildinfo:
     - qml6-module-qtcore
     - qml6-module-qtmultimedia
     - qml6-module-qtqml
+    - qml6-module-qtqml-workerscript
     - qml6-module-qtquick
     - qml6-module-qtquick-controls
     - qml6-module-qtquick-effects
+    - qml6-module-qtquick-layouts
     - qml6-module-qtquick-shapes
     - qml6-module-qtquick-window
     - qml6-module-qtquick3d-spatialaudio
@@ -163,3 +162,4 @@ apprunconf:
   prebuild_commands:
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKitFileBrowsing4.so.4.0.1 libMauiKitFileBrowsing4.so.4 && cd -"
