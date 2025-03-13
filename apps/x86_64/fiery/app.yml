@@ -99,7 +99,7 @@ buildinfo:
     - libqt6widgets6
     - libsharpyuv0
     - libsnappy1v5
-    - libssh2-1
+    - libssh2-1t64
     - libssl3t64
     - libtdb1
     - libtiff6
