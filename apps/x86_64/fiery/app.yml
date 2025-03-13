@@ -2,26 +2,26 @@
 # nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
 
 buildinfo:
-  name: maui-fiery
-  version: 2.0.0-0
+  name: fiery
+  version: 4.0.1-1
   binarypath: /usr/bin/fiery
   distrorepo:
-    - distro: kde-neon
-      release: noble
+    - distro: nitrux
+      release: trixie
       arch: amd64
-    - distro: ubuntu
-      release: noble
+    - distro: debian
+      release: testing
       arch: amd64
   deps:
-    - cask-server
-    - libmauikit
-    - libmauikitfilebrowsing4
-    - libmauiman
-    - mauiman
-    - qml6-module-org-kde-purpose
-    - qml6-module-org-maui-mauikit
-    - qml6-module-org-mauikit-filebrowsing
-    - qml6-module-qtquick-shapes
+    - kio-extras
+    - libqt6webenginecore6
+    - libqt6webenginecore6-bin
+    - libqt6webenginequick6
+    - mauikit-filebrowsing-git
+    - mauikit-git
+    - qml6-module-qtcore
+    - qml6-module-qtquick-effects
+    - qml6-module-qtwebengine
   usewrapper: false
 
 apprunconf:
