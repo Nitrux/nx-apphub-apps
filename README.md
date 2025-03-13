@@ -18,6 +18,6 @@ To contribute new applications create a Pull Request.
 
 # Issues
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+If you find problems with the contents of this repository, please create an issue.
 
 ©2025 Nitrux Latinoamericana S.C.
