@@ -19,7 +19,7 @@ buildinfo:
     - libmauiman
     - mauiman
     - qml6-module-org-kde-purpose
-    - qml6-module-org-mauikit
+    - qml6-module-org-maui-mauikit
     - qml6-module-org-mauikit-filebrowsing
     - qml6-module-qtquick-shapes
   usewrapper: false
