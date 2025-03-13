@@ -15,44 +15,147 @@ buildinfo:
   deps:
     - fiery-git
     - kio-extras
+    - libasound2-data
+    - libasound2t64
+    - libatomic1
+    - libb2-1
+    - libbrotli1
+    - libbz2-1.0
     - libc6
+    - libcanberra0
+    - libcom-err2
+    - libcurl3t64-gnutls
+    - libdouble-conversion3
+    - libdrm2
+    - libduktape207
+    - libevent-2.1-7t64
+    - libexpat1
+    - libffi8
+    - libfreetype6
+    - libgcrypt20
+    - libglib2.0-0t64
+    - libglvnd0
+    - libgomp1
+    - libgpg-error0
+    - libgraphite2-3
+    - libgssapi-krb5-2
+    - libharfbuzz-subset0
+    - libharfbuzz0b
+    - libicu72
+    - libjbig0
+    - libjpeg62-turbo
+    - libk5crypto3
+    - libkf6config-data
+    - libkf6configcore6
     - libkf6coreaddons6
     - libkf6i18n6
     - libkf6iconthemes6
     - libkf6notifications6
+    - libkf6windowsystem-data
     - libkf6windowsystem6
+    - libkrb5-3
+    - libkrb5support0
+    - liblcms2-2
+    - libldap2
+    - liblerc4
+    - libltdl7
+    - liblzma5
+    - libmd4c0
+    - libminizip1t64
+    - libnspr4
+    - libnss3
+    - libogg0
+    - libopengl0
+    - libopenjp2-7
+    - libopus0
+    - libpcre2-16-0
+    - libpcre2-8-0
+    - libpng16-16t64
+    - libproxy1v5
     - libqt6core6t64
+    - libqt6dbus6
     - libqt6gui6
     - libqt6multimedia6
     - libqt6multimediawidgets6
+    - libqt6network6
+    - libqt6opengl6
+    - libqt6positioning6
     - libqt6qml6
+    - libqt6qmlmodels6
     - libqt6quick6
     - libqt6quickcontrols2-6
     - libqt6quickshapes6
+    - libqt6quicktemplates2-6
     - libqt6spatialaudio6
     - libqt6sql6
     - libqt6svg6
     - libqt6svgwidgets6
+    - libqt6waylandclient6
+    - libqt6webchannel6
+    - libqt6webchannelquick6
     - libqt6webenginecore6
     - libqt6webenginecore6-bin
     - libqt6webenginequick6
     - libqt6widgets6
+    - libsharpyuv0
+    - libsnappy1v5
+    - libssh2-1
+    - libssl3t64
+    - libtdb1
+    - libtiff6
+    - libvorbis0a
+    - libvorbisfile3
+    - libwayland-client0
+    - libwayland-server0
+    - libwebp7
+    - libwebpdemux2
+    - libwebpmux3
+    - libx11-6
+    - libx11-data
+    - libxau6
+    - libxcb-cursor0
+    - libxcb-keysyms1
+    - libxcb-res0
+    - libxcb1
+    - libxcomposite1
+    - libxdamage1
+    - libxdmcp6
+    - libxext6
+    - libxfixes3
+    - libxkbcommon0
+    - libxkbfile1
+    - libxml2
+    - libxrandr2
+    - libxrender1
+    - libxslt1.1
+    - libxtst6
+    - libzstd1
     - maui-manager-git
     - mauikit-filebrowsing-git
     - mauikit-git
     - qml6-module-org-kde-kirigami
     - qml6-module-qtcore
     - qml6-module-qtmultimedia
+    - qml6-module-qtqml
+    - qml6-module-qtquick
     - qml6-module-qtquick-controls
     - qml6-module-qtquick-effects
     - qml6-module-qtquick-shapes
+    - qml6-module-qtquick-window
     - qml6-module-qtquick3d-spatialaudio
     - qml6-module-qtwebengine
+    - qt6-wayland
+    - zlib1g
   usewrapper: false
 
 apprunconf:
   setpath: "/usr/bin"
   setlibpath: "/usr/lib"
   exec: "/usr/bin/fiery"
+  envars:
+    QT_QPA_PLATFORM: "wayland;xcb"
+    QT_PLUGIN_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/plugins:$QT_QML_IMPORT_PATH"
+    QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml:$QT_QML_IMPORT_PATH"
   prebuild_commands:
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
