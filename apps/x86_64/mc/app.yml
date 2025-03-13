@@ -26,4 +26,4 @@ apprunconf:
   setlibpath: "/usr/lib"
   exec: "/usr/bin/mc"
   envvars:
-    MC_DATADIR: "$running_dir/usr/share/mc"
+    MC_DATADIR: "$APPDIR/usr/share/mc"
