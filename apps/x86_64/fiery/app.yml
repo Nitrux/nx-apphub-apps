@@ -13,6 +13,7 @@ buildinfo:
       release: testing
       arch: amd64
   deps:
+    - fiery
     - kio-extras
     - libqt6webenginecore6
     - libqt6webenginecore6-bin
