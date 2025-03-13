@@ -30,3 +30,5 @@ apprunconf:
   setpath: "/usr/bin"
   setlibpath: "/usr/lib"
   exec: "/usr/bin/fiery"
+  prebuild_commands:
+      - "ln -s /usr/lib/x86_64-linux-gnu/libMauiKit4.so.4 /usr/lib/x86_64-linux-gnu/libMauiKit4.so"
