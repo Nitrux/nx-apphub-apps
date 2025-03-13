@@ -1,0 +1,27 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: maui-fiery
+  version: 1.1.3-1
+  binarypath: /usr/bin/fiery
+  distrorepo:
+    - distro: kde-neon
+      release: user
+      arch: amd64
+  deps:
+    - cask-server
+    - libmauikit
+    - libmauikitfilebrowsing4
+    - libmauiman
+    - mauiman
+    - qml6-module-org-kde-purpose
+    - qml6-module-org-maui-mauikit
+    - qml6-module-org-maui-mauikitfilebrowsing
+    - qml6-module-qtquick-shapes
+  usewrapper: false
+
+apprunconf:
+  setpath: "/usr/bin"
+  setlibpath: "/usr/lib"
+  exec: "/usr/bin/fiery"
