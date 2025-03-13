@@ -81,7 +81,9 @@ buildinfo:
     - libqt6opengl6
     - libqt6positioning6
     - libqt6qml6
+    - libqt6qmlmeta6
     - libqt6qmlmodels6
+    - libqt6qmlworkerscript6
     - libqt6quick6
     - libqt6quickcontrols2-6
     - libqt6quickshapes6
@@ -156,6 +158,8 @@ apprunconf:
     QT_QPA_PLATFORM: "wayland;xcb"
     QT_PLUGIN_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/plugins:$QT_PLUGIN_PATH"
     QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml:$QT_QML_IMPORT_PATH"
+    QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml:$QML_IMPORT_PATH"
+    QML2_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$QML2_IMPORT_PATH"
   prebuild_commands:
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
