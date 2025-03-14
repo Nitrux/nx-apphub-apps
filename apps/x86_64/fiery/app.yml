@@ -177,6 +177,7 @@ buildinfo:
     - libxslt1.1
     - libxtst6
     - libzstd1
+    - luv-icon-theme
     - maui-manager-git
     - mauikit-filebrowsing-git
     - mauikit-git
@@ -214,6 +215,7 @@ apprunconf:
     QML2_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$QML2_IMPORT_PATH"
     QTWEBENGINEPROCESS_PATH: "$APPDIR/usr/lib/qt6/libexec/QtWebEngineProcess"
     QTWEBENGINE_RESOURCES_PATH: "$APPDIR/usr/share/qt6/resources"
+    QTWEBENGINE_LOCALES_PATH: "$APPDIR/usr/share/qt6/translations/qtwebengine_locales"
   prebuild_commands:
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
