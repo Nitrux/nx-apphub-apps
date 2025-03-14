@@ -43,14 +43,51 @@ buildinfo:
     - libjbig0
     - libjpeg62-turbo
     - libk5crypto3
+    - libkf6archive-data
+    - libkf6archive6
+    - libkf6auth-data
+    - libkf6authcore6
+    - libkf6bookmarks-data
+    - libkf6bookmarks6
+    - libkf6bookmarkswidgets6
+    - libkf6colorscheme-data
+    - libkf6colorscheme6
+    - libkf6completion6
     - libkf6config-data
     - libkf6configcore6
+    - libkf6configgui6
     - libkf6coreaddons6
+    - libkf6crash6
+    - libkf6guiaddons-data
+    - libkf6guiaddons6
     - libkf6i18n6
+    - libkf6iconthemes-data
     - libkf6iconthemes6
+    - libkf6iconwidgets6
+    - libkf6itemviews-data
+    - libkf6itemviews6
+    - libkf6jobwidgets6
+    - libkf6kiocore6
+    - libkf6kiofilewidgets6
+    - libkf6kiogui6
+    - libkf6kiowidgets6
     - libkf6notifications6
+    - libkf6service-bin
+    - libkf6service6
+    - libkf6solid-data
+    - libkf6solid6
+    - libkf6widgetsaddons-data
+    - libkf6widgetsaddons6
     - libkf6windowsystem-data
     - libkf6windowsystem6
+    - libkirigami-data
+    - libkirigami6
+    - libkirigamidelegates6
+    - libkirigamidialogs6
+    - libkirigamilayouts6
+    - libkirigamiplatform6
+    - libkirigamiprimitives6
+    - libkirigamiprivate6
     - libkrb5-3
     - libkrb5support0
     - liblcms2-2
@@ -92,10 +129,13 @@ buildinfo:
     - libqt6waylandclient6
     - libqt6webchannel6
     - libqt6webchannelquick6
+    - libqt6webengine6-data
     - libqt6webenginecore6
     - libqt6webenginecore6-bin
     - libqt6webenginequick6
+    - libqt6webenginewidgets6
     - libqt6widgets6
+    - libqt6xml6
     - libsharpyuv0
     - libsnappy1v5
     - libssh2-1t64
@@ -105,6 +145,7 @@ buildinfo:
     - libvorbis0a
     - libvorbisfile3
     - libwayland-client0
+    - libwayland-cursor0
     - libwayland-server0
     - libwebp7
     - libwebpdemux2
@@ -133,18 +174,23 @@ buildinfo:
     - mauikit-filebrowsing-git
     - mauikit-git
     - qml6-module-org-kde-kirigami
+    - qml6-module-qt-labs-folderlistmodel
     - qml6-module-qtcore
     - qml6-module-qtmultimedia
     - qml6-module-qtqml
+    - qml6-module-qtqml-models
     - qml6-module-qtqml-workerscript
     - qml6-module-qtquick
     - qml6-module-qtquick-controls
+    - qml6-module-qtquick-dialogs
     - qml6-module-qtquick-effects
     - qml6-module-qtquick-layouts
     - qml6-module-qtquick-shapes
+    - qml6-module-qtquick-templates
     - qml6-module-qtquick-window
     - qml6-module-qtquick3d-spatialaudio
     - qml6-module-qtwebengine
+    - qml6-module-qtwebengine-controlsdelegates
     - qt6-wayland
     - zlib1g
   usewrapper: false
@@ -159,6 +205,7 @@ apprunconf:
     QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml:$QT_QML_IMPORT_PATH"
     QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml:$QML_IMPORT_PATH"
     QML2_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$QML2_IMPORT_PATH"
+    QTWEBENGINEPROCESS_PATH: "$APPDIR/usr/lib/qt6/libexec:$QTWEBENGINEPROCESS_PATH"
   prebuild_commands:
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
