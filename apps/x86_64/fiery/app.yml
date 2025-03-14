@@ -40,6 +40,8 @@ buildinfo:
     - libharfbuzz-subset0
     - libharfbuzz0b
     - libicu72
+    - libimobiledevice-1.0-6
+    - libimobiledevice-glue-1.0-0
     - libjbig0
     - libjpeg62-turbo
     - libk5crypto3
@@ -50,6 +52,9 @@ buildinfo:
     - libkf6bookmarks-data
     - libkf6bookmarks6
     - libkf6bookmarkswidgets6
+    - libkf6breezeicons6
+    - libkf6codecs-data
+    - libkf6codecs6
     - libkf6colorscheme-data
     - libkf6colorscheme6
     - libkf6completion6
@@ -105,6 +110,7 @@ buildinfo:
     - libopus0
     - libpcre2-16-0
     - libpcre2-8-0
+    - libplist-2.0-4
     - libpng16-16t64
     - libproxy1v5
     - libqt6core6t64
@@ -142,6 +148,7 @@ buildinfo:
     - libssl3t64
     - libtdb1
     - libtiff6
+    - libusbmuxd-2.0-7
     - libvorbis0a
     - libvorbisfile3
     - libwayland-client0
@@ -205,7 +212,8 @@ apprunconf:
     QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml:$QT_QML_IMPORT_PATH"
     QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml:$QML_IMPORT_PATH"
     QML2_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$QML2_IMPORT_PATH"
-    QTWEBENGINEPROCESS_PATH: "$APPDIR/usr/lib/qt6/libexec:$QTWEBENGINEPROCESS_PATH"
+    QTWEBENGINEPROCESS_PATH: "$APPDIR/usr/lib/qt6/libexec/QtWebEngineProcess"
+    QTWEBENGINE_RESOURCES_PATH: "$APPDIR/usr/share/qt6/resources"
   prebuild_commands:
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
