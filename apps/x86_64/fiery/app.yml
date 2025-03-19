@@ -142,6 +142,7 @@ buildinfo:
     - mauikit-git
     - qml6-module-org-kde-kirigami
     - qml6-module-qtcore
+    - qml6-module-qtmultimedia
     - qml6-module-qtqml
     - qml6-module-qtqml-workerscript
     - qml6-module-qtquick-controls
