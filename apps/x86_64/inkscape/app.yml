@@ -10,6 +10,10 @@ buildinfo:
       distro: ubuntu
       release: oracular
       arch: amd64
+
+    - distro: ubuntu
+      release: oracular
+      arch: amd64
   deps:
     - lib2geom1.2.0t64
     - libatkmm-1.6-1v5
