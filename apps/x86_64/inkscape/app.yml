@@ -10,6 +10,7 @@ buildinfo:
       - distro: ubuntu
         release: oracular
         arch: amd64
+        components: [main, universe]
     ppas:
       - id: inkscape-dev
         ppa: inkscape.dev/stable
