@@ -32,7 +32,6 @@ buildinfo:
     - libfreetype6
     - libgc1
     - libgdk-pixbuf-2.0-0
-    - libglib2.0-0t64
     - libglibmm-2.4-1t64
     - libgomp1
     - libgsl28
