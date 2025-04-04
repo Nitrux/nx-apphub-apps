@@ -55,7 +55,6 @@ buildinfo:
     - librsvg2-common
     - libsigc++-2.0-0v5
     - libsoup-2.4-1
-    - libstdc++6
     - libvisio-0.1-1
     - libwpg-0.3-3
     - libx11-6
