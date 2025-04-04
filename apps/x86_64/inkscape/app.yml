@@ -15,6 +15,7 @@ buildinfo:
       release: oracular
       arch: amd64
   deps:
+    - Inkscape
     - lib2geom1.2.0t64
     - libatkmm-1.6-1v5
     - libboost-filesystem1.83.0
