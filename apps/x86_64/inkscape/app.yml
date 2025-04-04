@@ -6,14 +6,16 @@ buildinfo:
   version: 1:1.4.1+202503302257+93de688d07~ubuntu24.10.1 
   binarypath: /usr/bin/inkscape
   distrorepo:
-    - ppa: inkscape.dev/stable
-      distro: ubuntu
-      release: oracular
-      arch: amd64
-
-    - distro: ubuntu
-      release: oracular
-      arch: amd64
+    base:
+      - distro: ubuntu
+        release: oracular
+        arch: amd64
+    ppas:
+      - id: inkscape-dev
+        ppa: inkscape.dev/stable
+        distro: ubuntu
+        release: oracular
+        arch: amd64
   deps:
     - Inkscape
     - lib2geom1.2.0t64
