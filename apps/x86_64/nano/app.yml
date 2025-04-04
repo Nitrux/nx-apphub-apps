@@ -3,7 +3,7 @@
 
 buildinfo:
   name: nano
-  version: 8.3-1
+  version: 8.4-1
   binarypath: /usr/bin/nano
   distrorepo:
     - distro: debian
