@@ -28,6 +28,8 @@ buildinfo:
     - libcairomm-1.0-1v5
     - libcdr-0.1-1
     - libdouble-conversion3
+    - libenchant-2-2
+    - libfftw3-double3
     - libfontconfig1
     - libfreetype6
     - libgc1
@@ -35,13 +37,24 @@ buildinfo:
     - libglibmm-2.4-1t64
     - libgomp1
     - libgsl28
+    - libgslcblas0
     - libgspell-1-2
     - libgtk-3-0t64
     - libgtkmm-3.0-1t64
+    - libgtksourceview-4-0
     - libharfbuzz0b
+    - libicu74
+    - libjpeg-turbo8
     - libjpeg8
     - liblcms2-2
+    - liblqr-1-0
+    - libltdl7
     - libmagick++-6.q16-9t64
+    - libmagickcore-6.q16-7t64
+    - libmagickwand-6.q16-7t64
+    - libnspr4
+    - libnss3
+    - libopenjp2-7
     - libpango-1.0-0
     - libpangocairo-1.0-0
     - libpangoft2-1.0-0
@@ -56,6 +69,7 @@ buildinfo:
     - libsigc++-2.0-0v5
     - libsoup-2.4-1
     - libvisio-0.1-1
+    - libwpd-0.10-10
     - libwpg-0.3-3
     - libx11-6
     - libxml2
@@ -68,3 +82,5 @@ apprunconf:
   setpath: "/usr/bin"
   setlibpath: "/usr/lib"
   exec: "/usr/bin/inkscape"
+  envvars:
+    SESSION_MANAGER: ""
