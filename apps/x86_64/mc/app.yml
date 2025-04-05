@@ -17,7 +17,6 @@ buildinfo:
     - libx11-6
     - mc
     - mc-data
-  usewrapper: false
 
 apprunconf:
   setpath: "/usr/bin"

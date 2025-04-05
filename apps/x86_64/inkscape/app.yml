@@ -76,7 +76,6 @@ buildinfo:
     - libxslt1.1
     - python3
     - zlib1g
-  usewrapper: false
 
 apprunconf:
   setpath: "/usr/bin"

@@ -156,7 +156,6 @@ buildinfo:
     - qt6-svg-plugins
     - qt6-wayland
     - xkb-data
-  usewrapper: false
 
 apprunconf:
   setpath: "/usr/bin"

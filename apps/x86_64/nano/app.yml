@@ -13,7 +13,6 @@ buildinfo:
     - libncursesw6
     - libtinfo6
     - nano
-  usewrapper: false
 
 apprunconf:
   setpath: "/usr/bin"
