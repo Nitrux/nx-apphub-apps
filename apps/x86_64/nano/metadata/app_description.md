@@ -18,4 +18,3 @@ However, GNU nano also implements many features missing in Pico, including:
  - tab completion of filenames and search terms
  - toggling features while running
  - and full internationalization support
-
