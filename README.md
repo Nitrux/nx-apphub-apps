@@ -6,7 +6,7 @@
 
 # Introduction
 
-This repository contains YAML files used by NX AppHub to generate AppImages.
+This repository contains files used by [NX AppHub CLI](https://github.com/Nitrux/nx-apphub) to generate AppImages.
 
 # Licensing
 
@@ -14,7 +14,7 @@ The license for this repository and its contents is **BSD-3-Clause**.
 
 # Contributing
 
-To contribute new applications create a Pull Request.
+To contribute new applications read the [Contribution Workflow Guidelines](https://github.com/Nitrux/nx-apphub-apps/wiki/Contribution-Workflow-Guidelines).
 
 # Issues
 
