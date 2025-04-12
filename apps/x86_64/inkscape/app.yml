@@ -22,7 +22,6 @@ buildinfo:
       repo: inkscape-dev
     - adwaita-icon-theme
     - adwaita-icon-theme-legacy
-    - gtk-update-icon-cache
     - lib2geom1.2.0t64
     - libatk-bridge2.0-0t64
     - libatk1.0-0t64
@@ -46,7 +45,6 @@ buildinfo:
     - libfribidi0
     - libgc1
     - libgdk-pixbuf-2.0-0
-    - libgdk-pixbuf2.0-bin
     - libglibmm-2.4-1t64
     - libgomp1
     - libgraphite2-3
@@ -108,10 +106,8 @@ buildinfo:
     - libxrandr2
     - libxrender1
     - libxslt1.1
-    - shared-mime-info
     - xkb-data
-    - zlib1g
-  
+
 apprunconf:
   setpath: "/usr/bin"
   setlibpath: "/usr/lib"
