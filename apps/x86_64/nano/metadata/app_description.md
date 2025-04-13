@@ -1,6 +1,10 @@
 # nano
 
-### small, friendly text editor inspired by Pico
+## Summary 
+
+small, friendly text editor inspired by Pico
+
+## Description
 
 GNU nano is an easy-to-use text editor originally designed as a replacement for Pico, the ncurses-based editor from the non-free mailer package Pine (itself now available under the Apache License as Alpine).
 
@@ -18,3 +22,11 @@ However, GNU nano also implements many features missing in Pico, including:
  - tab completion of filenames and search terms
  - toggling features while running
  - and full internationalization support
+
+## Homepage
+
+www.nano-editor.org
+
+## License
+
+GPL version 3
