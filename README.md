@@ -6,7 +6,7 @@
 
 # Introduction
 
-This repository contains files used by [NX AppHub CLI](https://github.com/Nitrux/nx-apphub) to generate AppImages.
+This repository contains files used by [NX AppHub CLI](https://github.com/Nitrux/nx-apphub) to generate AppBoxes.
 
 # Licensing
 
