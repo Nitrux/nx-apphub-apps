@@ -1,4 +1,4 @@
-# fiery
+# Fiery
 
 ## Summary
 
@@ -8,9 +8,13 @@ MauiKit convergent web browser
 
 Fiery allows you to browse the web.
 
+## Category
+
+AppHub.Internet
+
 ## Homepage
 
-https://mauikit.org
+[https://mauikit.org](https://mauikit.org)
 
 ## License
 

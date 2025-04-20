@@ -1,8 +1,8 @@
-# inkscape
+# Inkscape
 
 ## Summary
 
-vector-based drawing program
+Vector-based drawing program
 
 ## Description
 
@@ -12,9 +12,13 @@ A selection of powerful vector graphics editing tools comes as standard. There i
 
 Most of the common vector formats are supported, including PDF, Adobe Illustrator and AutoCAD files, and it has unrivalled support for the SVG web graphics standard. 
 
+## Category
+
+AppHub.Graphics
+
 ## Homepage
 
-https://inkscape.org/
+[https://inkscape.org/](https://inkscape.org/)
 
 ## License
 

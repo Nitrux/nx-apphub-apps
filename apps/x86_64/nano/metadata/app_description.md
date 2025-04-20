@@ -1,8 +1,8 @@
-# nano
+# Nano
 
 ## Summary 
 
-small, friendly text editor inspired by Pico
+Small, friendly text editor inspired by Pico
 
 ## Description
 
@@ -23,9 +23,13 @@ However, GNU nano also implements many features missing in Pico, including:
  - toggling features while running
  - and full internationalization support
 
+## Category
+
+AppHub.Utilities
+
 ## Homepage
 
-www.nano-editor.org
+[https://www.nano-editor.org](https://www.nano-editor.org)
 
 ## License
 
