@@ -1,0 +1,30 @@
+buildinfo:
+  name: vim
+  version: 2:9.1.1230-1
+  binarypath: /usr/bin/vim.basic
+  distrorepo:
+    base:
+    - distro: debian
+      release: unstable
+      arch: amd64
+      components:
+      - main
+  deps:
+  - vim-common
+  - vim-runtime
+  - libacl1
+  - libgpm2
+  - libselinux1
+  - libsodium23
+  - libtinfo6
+  - vim
+apprunconf:
+  exec: /usr/bin/vim.basic
+  setpath: /usr/bin
+  setlibpath: /usr/lib
+  envvars: {}
+  prebuild_commands: []
+sandbox:
+  type: firejail
+  name: vim
+  aa_profile: none
