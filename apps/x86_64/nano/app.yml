@@ -18,3 +18,28 @@ apprunconf:
   setpath: "/usr/bin"
   setlibpath: "/usr/lib"
   exec: "/usr/bin/nano"
+  envvars: {}
+  prebuild_commands: []
+
+sandbox:
+  type: bwrap
+  dev: true
+  proc: true
+  tmpfs: true
+  ro-bind:
+    - "$APPDIR:$APPDIR"
+    - /lib64:/lib64
+    - /lib/x86_64-linux-gnu:/lib/x86_64-linux-gnu
+    - /usr/share/terminfo:/usr/share/terminfo
+  bind:
+    - ~/.config:~/.config
+    - ~/.local:~/.local
+  unshare-user: true
+  unshare-uts: true
+  cap-drop-all: true
+  die-with-parent: true
+  bwrap_env:
+    - HOME: "$HOME"
+  bwrap_unset-env:
+    - DISPLAY
+
