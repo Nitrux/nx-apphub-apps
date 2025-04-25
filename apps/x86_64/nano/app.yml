@@ -42,3 +42,6 @@ sandbox:
     - HOME: "$HOME"
   bwrap_unset-env:
     - DISPLAY
+
+integration:
+  cli_app: true
