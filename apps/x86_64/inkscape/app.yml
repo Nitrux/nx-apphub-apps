@@ -7,13 +7,14 @@ buildinfo:
   binarypath: /usr/bin/inkscape
   distrorepo:
     - distro: debian
-      release: testing
+      release: unstable
       arch: amd64
   deps:
     - adwaita-icon-theme
     - adwaita-icon-theme-legacy
     - inkscape
     - lib2geom1.2.0t64
+    - lib2geom1.4.0
     - libatk-bridge2.0-0t64
     - libatk1.0-0t64
     - libatkmm-1.6-1v5
