@@ -156,6 +156,7 @@ buildinfo:
     - qt6-svg-plugins
     - qt6-wayland
     - xkb-data
+  runtime: uruntime
 
 apprunconf:
   setpath: "/usr/bin"
