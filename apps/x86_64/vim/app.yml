@@ -31,3 +31,6 @@ sandbox:
   type: firejail
   name: vim
   aa_profile: none
+
+integration:
+  cli_app: true
