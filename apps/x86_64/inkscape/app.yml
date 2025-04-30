@@ -47,7 +47,7 @@ buildinfo:
     - libgtkmm-3.0-1t64
     - libgtksourceview-4-0
     - libharfbuzz0b
-    - libicu74
+    - libicu76
     - libjbig0
     - libjpeg-turbo8
     - libjpeg8
