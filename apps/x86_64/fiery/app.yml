@@ -176,3 +176,35 @@ apprunconf:
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKitFileBrowsing4.so.4.0.1 libMauiKitFileBrowsing4.so.4 && cd -"
+
+sandbox:
+  type: bwrap
+  dev: true
+  proc: true
+  tmpfs: true
+  unshare-user: true
+  unshare-uts: true
+  cap-drop-all: true
+  die-with-parent: true
+  bind:
+    - ~/.config:~/.config
+    - ~/.local:~/.local
+    - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
+    - /dev/shm:/dev/shm
+  ro-bind:
+    - "$APPDIR:$APPDIR"
+    - /lib:/lib
+    - /lib64:/lib64
+    - /usr:/usr
+    - /etc/fonts:/etc/fonts
+    - /etc/xdg:/etc/xdg
+  bwrap_env:
+    - HOME: "$HOME"
+    - LANG: "en_US.UTF-8"
+    - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+  bwrap_unset-env:
+    - DISPLAY
+
+integration:
+  gui_app: true

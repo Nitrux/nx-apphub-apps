@@ -3,25 +3,16 @@
 
 buildinfo:
   name: inkscape
-  version: 1:1.4.1+202503302257+93de688d07~ubuntu24.10.1 
+  version: 1.4-6
   binarypath: /usr/bin/inkscape
   distrorepo:
-    base:
-      - distro: ubuntu
-        release: oracular
-        arch: amd64
-        components: [main, universe]
-    ppas:
-      - id: inkscape-dev
-        ppa: inkscape.dev/stable
-        distro: ubuntu
-        release: oracular
-        arch: amd64
+    - distro: debian
+      release: testing
+      arch: amd64
   deps:
-    - name: inkscape
-      repo: inkscape-dev
     - adwaita-icon-theme
     - adwaita-icon-theme-legacy
+    - inkscape
     - lib2geom1.2.0t64
     - libatk-bridge2.0-0t64
     - libatk1.0-0t64
@@ -107,6 +98,7 @@ buildinfo:
     - libxrender1
     - libxslt1.1
     - xkb-data
+  runtime: uruntime
 
 apprunconf:
   setpath: "/usr/bin"
@@ -115,3 +107,37 @@ apprunconf:
   envvars:
     XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
     FONTCONFIG_PATH: "$APPDIR/etc/fonts"
+  prebuild_commands:
+    - "rm -f $APPDIR/usr/share/metainfo/org.inkscape.Inkscape.appdata.xml"
+
+sandbox:
+  type: bwrap
+  dev: true
+  proc: true
+  tmpfs: true
+  unshare-user: true
+  unshare-uts: true
+  cap-drop-all: true
+  die-with-parent: true
+  bind:
+    - ~/.config:~/.config
+    - ~/.local:~/.local
+    - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
+    - /dev/shm:/dev/shm
+  ro-bind:
+    - "$APPDIR:$APPDIR"
+    - /lib:/lib
+    - /lib64:/lib64
+    - /usr:/usr
+    - /etc/fonts:/etc/fonts
+    - /etc/xdg:/etc/xdg
+  bwrap_env:
+    - HOME: "$HOME"
+    - LANG: "en_US.UTF-8"
+    - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+  bwrap_unset-env:
+    - DISPLAY
+
+integration:
+  gui_app: true
