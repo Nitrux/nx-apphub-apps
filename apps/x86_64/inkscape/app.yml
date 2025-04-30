@@ -33,6 +33,7 @@ buildinfo:
     - libdouble-conversion3
     - libenchant-2-2
     - libepoxy0
+    - libffi8
     - libfftw3-double3
     - libfontconfig1
     - libfreetype6
@@ -98,6 +99,7 @@ buildinfo:
     - libxi6
     - libxinerama1
     - libxkbcommon0
+    - libxml2
     - libxrandr2
     - libxrender1
     - libxslt1.1
