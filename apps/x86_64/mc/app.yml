@@ -17,6 +17,7 @@ buildinfo:
     - libx11-6
     - mc
     - mc-data
+  runtime: uruntime
 
 apprunconf:
   setpath: "/usr/bin"
@@ -24,3 +25,11 @@ apprunconf:
   exec: "/usr/bin/mc"
   envvars:
     MC_DATADIR: "$APPDIR/usr/share/mc"
+
+sandbox:
+  type: firejail
+  name: vim
+  aa_profile: none
+
+integration:
+  cli_app: true
