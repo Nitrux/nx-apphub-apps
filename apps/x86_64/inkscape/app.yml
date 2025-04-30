@@ -6,7 +6,7 @@ buildinfo:
   version: 1.4-6
   binarypath: /usr/bin/inkscape
   distrorepo:
-    - distro: devuan
+    - distro: debian
       release: unstable
       arch: amd64
   deps:
