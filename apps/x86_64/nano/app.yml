@@ -13,6 +13,7 @@ buildinfo:
     - libncursesw6
     - libtinfo6
     - nano
+  runtime: uruntime
 
 apprunconf:
   setpath: "/usr/bin"
