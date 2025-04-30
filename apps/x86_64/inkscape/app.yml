@@ -14,6 +14,7 @@ buildinfo:
     - adwaita-icon-theme-legacy
     - inkscape
     - lib2geom1.4.0
+    - libassuan9
     - libatk-bridge2.0-0t64
     - libatk1.0-0t64
     - libatkmm-1.6-1v5
@@ -24,8 +25,10 @@ buildinfo:
     - libcairo2
     - libcairomm-1.0-1v5
     - libcdr-0.1-1
+    - libcloudproviders0
     - libcurl3t64-gnutls
     - libdatrie1
+    - libdav1d7
     - libdeflate0
     - libdouble-conversion3
     - libenchant-2-2
@@ -38,6 +41,8 @@ buildinfo:
     - libgdk-pixbuf-2.0-0
     - libglibmm-2.4-1t64
     - libgomp1
+    - libgpgme11t64
+    - libgpgmepp6t64
     - libgraphite2-3
     - libgsl28
     - libgslcblas0
@@ -49,16 +54,15 @@ buildinfo:
     - libharfbuzz0b
     - libicu76
     - libjbig0
-    - libjpeg-turbo8
-    - libjpeg8
+    - libjpeg62-turbo
     - liblcms2-2
     - libldap2
     - liblerc4
     - liblqr-1-0
     - libltdl7
-    - libmagick++-6.q16-9t64
-    - libmagickcore-6.q16-7t64
-    - libmagickwand-6.q16-7t64
+    - libnghttp3-9
+    - libngtcp2-16
+    - libngtcp2-crypto-gnutls8
     - libnspr4
     - libnss3
     - libopenjp2-7
@@ -69,7 +73,7 @@ buildinfo:
     - libpixman-1-0
     - libpng16-16t64
     - libpoppler-glib8t64
-    - libpoppler140
+    - libpoppler147
     - libpotrace0
     - librevenge-0.0-0
     - librsvg2-2
