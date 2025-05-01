@@ -13,8 +13,8 @@ buildinfo:
       release: testing
       arch: amd64
   deps:
-    - kio6
     - kio-extras
+    - kio6
     - libb2-1
     - libboost-filesystem1.83.0
     - libbz2-1.0
@@ -24,6 +24,7 @@ buildinfo:
     - libdouble-conversion3
     - libduktape207
     - libevent-2.1-7t64
+    - libffi8
     - libfontconfig1
     - libfreetype6
     - libgomp1
@@ -118,7 +119,9 @@ buildinfo:
     - libqt6svg6
     - libqt6texttospeech6
     - libqt6waylandclient6
+    - libqt6waylandcompositor6
     - libqt6widgets6
+    - libqt6wlshellintegration6
     - libqt6xml6
     - librtmp1
     - libsasl2-2
@@ -141,6 +144,7 @@ buildinfo:
     - libxfixes3
     - libxkbcommon0
     - libxkbfile1
+    - libxml2
     - maui-manager-git
     - mauikit-filebrowsing-git
     - mauikit-git
