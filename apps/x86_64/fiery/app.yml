@@ -15,6 +15,7 @@ buildinfo:
   deps:
     - fiery-git
     - libb2-1
+    - libbz2-1.0
     - libcanberra0
     - libcurl3t64-gnutls
     - libdeflate0
@@ -104,6 +105,7 @@ buildinfo:
     - libqt6sql6-sqlite
     - libqt6svg6
     - libqt6waylandclient6
+    - libqt6waylandcompositor6
     - libqt6webchannel6
     - libqt6webchannelquick6
     - libqt6webengine6-data
@@ -111,6 +113,7 @@ buildinfo:
     - libqt6webenginecore6-bin
     - libqt6webenginequick6
     - libqt6widgets6
+    - libqt6wlshellintegration6
     - libqt6xml6
     - librtmp1
     - libsasl2-2
@@ -133,6 +136,7 @@ buildinfo:
     - libxfixes3
     - libxkbcommon0
     - libxkbfile1
+    - libxml2
     - libxrandr2
     - libxrender1
     - libxslt1.1
