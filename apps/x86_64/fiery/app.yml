@@ -14,7 +14,10 @@ buildinfo:
       arch: amd64
   deps:
     - fiery-git
+    - kio-extras
+    - kio6
     - libb2-1
+    - libboost-filesystem1.83.0
     - libbz2-1.0
     - libcanberra0
     - libcurl3t64-gnutls
@@ -22,6 +25,7 @@ buildinfo:
     - libdouble-conversion3
     - libduktape207
     - libevent-2.1-7t64
+    - libffi8
     - libfontconfig1
     - libfreetype6
     - libgomp1
@@ -43,14 +47,20 @@ buildinfo:
     - libkf6completion6
     - libkf6configcore6
     - libkf6configgui6
+    - libkf6configwidgets6
     - libkf6coreaddons6
     - libkf6crash6
+    - libkf6dbusaddons6
+    - libkf6globalaccel6
     - libkf6guiaddons6
     - libkf6i18n6
     - libkf6iconthemes6
     - libkf6iconwidgets6
     - libkf6itemviews6
     - libkf6jobwidgets6
+    - libkf6kcmutils6
+    - libkf6kcmutilscore6
+    - libkf6kcmutilsquick6
     - libkf6kiocore6
     - libkf6kiofilewidgets6
     - libkf6kiogui6
@@ -58,8 +68,10 @@ buildinfo:
     - libkf6notifications6
     - libkf6service6
     - libkf6solid6
+    - libkf6textwidgets6
     - libkf6widgetsaddons6
     - libkf6windowsystem6
+    - libkf6xmlgui6
     - libkirigami6
     - libkirigamidelegates6
     - libkirigamidialogs6
@@ -101,6 +113,7 @@ buildinfo:
     - libqt6quickcontrols2-6
     - libqt6quickshapes6
     - libqt6quicktemplates2-6
+    - libqt6quickwidgets6
     - libqt6sql6
     - libqt6sql6-sqlite
     - libqt6svg6
@@ -126,6 +139,9 @@ buildinfo:
     - libusbmuxd-2.0-7
     - libvorbis0a
     - libvorbisfile3
+    - libwayland-client0
+    - libwayland-cursor0
+    - libwayland-egl1
     - libwebp7
     - libwebpdemux2
     - libwebpmux3
