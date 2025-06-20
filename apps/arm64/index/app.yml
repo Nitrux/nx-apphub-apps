@@ -2,19 +2,21 @@
 # nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
 
 buildinfo:
-  name: strike
-  version: 4.0.1-1
-  binarypath: /usr/bin/strike
+  name: index
+  version: 4.0.2-1
+  binarypath: /usr/bin/index
   distrorepo:
     - distro: debian
       release: testing
-      arch: amd64    
+      arch: arm64    
     - distro: nitrux
       release: forky
-      arch: amd64
+      arch: arm64
   deps:
+    - index
     - kio-extras
     - kio6
+    - libasyncns0
     - libb2-1
     - libboost-filesystem1.83.0
     - libbz2-1.0
@@ -25,13 +27,14 @@ buildinfo:
     - libduktape207
     - libevent-2.1-7t64
     - libffi8
+    - libflac14
     - libfontconfig1
     - libfreetype6
     - libgomp1
     - libgraphite2-3
     - libharfbuzz-subset0
     - libharfbuzz0b
-    - libicu72
+    - libicu76
     - libimobiledevice-1.0-6
     - libimobiledevice-glue-1.0-0
     - libkf6archive6
@@ -81,11 +84,13 @@ buildinfo:
     - libkirigamiprimitives6
     - libkirigamiprivate6
     - liblcms2-2
-    - libldap-2.5-0
+    - libldap2
     - liblerc4
     - libltdl7
     - libmd4c0
     - libminizip1t64
+    - libmp3lame0
+    - libmpg123-0t64
     - libnghttp3-9
     - libngtcp2-16
     - libngtcp2-crypto-gnutls8
@@ -93,10 +98,12 @@ buildinfo:
     - libnss3
     - libogg0
     - libopengl0
+    - libopus0
     - libpcre2-16-0
     - libplist-2.0-4
     - libpng16-16t64
     - libproxy1v5
+    - libpulse0
     - libqt6core5compat6
     - libqt6core6t64
     - libqt6dbus6
@@ -107,6 +114,7 @@ buildinfo:
     - libqt6positioning6
     - libqt6printsupport6
     - libqt6qml6
+    - libqt6qmlmeta6
     - libqt6qmlmodels6
     - libqt6qmlworkerscript6
     - libqt6quick6
@@ -127,12 +135,14 @@ buildinfo:
     - libsasl2-2
     - libsharpyuv0
     - libsnappy1v5
+    - libsndfile1
     - libsqlite3-0
     - libssh2-1t64
     - libtdb1
     - libtiff6
     - libusbmuxd-2.0-7
     - libvorbis0a
+    - libvorbisenc2
     - libvorbisfile3
     - libwayland-client0
     - libwayland-cursor0
@@ -145,11 +155,12 @@ buildinfo:
     - libxkbcommon0
     - libxkbfile1
     - libxml2
-    - maui-manager-git
-    - mauikit-filebrowsing-git
-    - mauikit-git
-    - mauikit-terminal-git
-    - mauikit-texteditor-git
+    - maui-manager
+    - mauikit
+    - mauikit-archiver
+    - mauikit-filebrowsing
+    - mauikit-terminal
+    - mauikit-texteditor
     - qml6-module-org-kde-kirigami
     - qml6-module-org-kde-sonnet
     - qml6-module-qtcore
@@ -163,30 +174,32 @@ buildinfo:
     - qml6-module-qtquick-templates
     - qml6-module-qtquick-tooling
     - qml6-module-qtquick-window
+    - qt5-gtk-platformtheme
+    - qt6-gtk-platformtheme
     - qt6-svg-plugins
     - qt6-wayland
-    - strike-git
     - xkb-data
   runtime: uruntime
 
 apprunconf:
   setpath: "/usr/bin"
   setlibpath: "/usr/lib"
-  exec: "/usr/bin/strike"
+  exec: "/usr/bin/index"
   envvars:
     QT_QPA_PLATFORM: "wayland;xcb"
-    QT_PLUGIN_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/plugins"
-    QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml"
-    QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml"
-    QML2_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml"
+    QT_PLUGIN_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/plugins"
+    QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/qml:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/qml"
+    QML_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt6/qml"
+    QML2_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/qml"
     SESSION_MANAGER: ""
     XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
   prebuild_commands:
-    - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
-    - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
-    - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKitFileBrowsing4.so.4.0.1 libMauiKitFileBrowsing4.so.4 && cd -"
-    - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKitTerminal4.so.4.0.1 libMauiKitTerminal4.so.4 && cd -"
-    - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKitTextEditor4.so.4.0.1 libMauiKitTextEditor4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKit4.so.4.0.2 libMauiKit4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiMan4.so.4.0.2 libMauiMan4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKitFileBrowsing4.so.4.0.2 libMauiKitFileBrowsing4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKitTerminal4.so.4.0.2 libMauiKitTerminal4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKitTextEditor4.so.4.0.2 libMauiKitTextEditor4.so.4 && cd -"
+    - "rm -f $APPDIR/usr/share/metainfo/org.kde.index.appdata.xml"
 
 sandbox:
   type: bwrap
@@ -198,7 +211,6 @@ sandbox:
   cap-drop-all: true
   die-with-parent: true
   bind:
-    - "$HOME:$HOME"
     - ~/.config:~/.config
     - ~/.local:~/.local
     - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"

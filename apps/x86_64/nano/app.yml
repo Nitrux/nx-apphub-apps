@@ -32,6 +32,7 @@ sandbox:
   cap-drop-all: true
   die-with-parent: true
   bind:
+    - - "$HOME:$HOME"
     - ~/.config:~/.config
     - ~/.local:~/.local
   ro-bind:
@@ -45,4 +46,4 @@ sandbox:
     - DISPLAY
 
 integration:
-  cli_app: true
+  type: cli

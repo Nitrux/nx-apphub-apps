@@ -126,6 +126,7 @@ sandbox:
   cap-drop-all: true
   die-with-parent: true
   bind:
+    - "$HOME:$HOME"
     - ~/.config:~/.config
     - ~/.local:~/.local
     - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
@@ -146,4 +147,4 @@ sandbox:
     - DISPLAY
 
 integration:
-  gui_app: true
+  type: gui
