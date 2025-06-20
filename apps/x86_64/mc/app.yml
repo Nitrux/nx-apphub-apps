@@ -28,7 +28,7 @@ apprunconf:
 
 sandbox:
   type: firejail
-  name: vim
+  name: mc
   aa_profile: none
 
 integration:
