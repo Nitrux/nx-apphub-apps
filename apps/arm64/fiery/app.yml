@@ -8,10 +8,10 @@ buildinfo:
   distrorepo:
     - distro: debian
       release: testing
-      arch: amd64    
+      arch: arm64    
     - distro: nitrux
       release: forky
-      arch: amd64
+      arch: arm64
   deps:
     - fiery-git
     - kio-extras
@@ -184,19 +184,19 @@ apprunconf:
   exec: "/usr/bin/fiery"
   envvars:
     QT_QPA_PLATFORM: "wayland;xcb"
-    QT_PLUGIN_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/plugins"
-    QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml"
-    QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml"
-    QML2_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml"
+    QT_PLUGIN_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/plugins"
+    QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/qml:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/qml"
+    QML_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt6/qml"
+    QML2_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/qml"
     QTWEBENGINEPROCESS_PATH: "$APPDIR/usr/lib/qt6/libexec/QtWebEngineProcess"
     QTWEBENGINE_RESOURCES_PATH: "$APPDIR/usr/share/qt6/resources"
     QTWEBENGINE_LOCALES_PATH: "$APPDIR/usr/share/qt6/translations/qtwebengine_locales"
     SESSION_MANAGER: ""
     XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
   prebuild_commands:
-    - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
-    - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
-    - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKitFileBrowsing4.so.4.0.1 libMauiKitFileBrowsing4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKitFileBrowsing4.so.4.0.1 libMauiKitFileBrowsing4.so.4 && cd -"
 
 sandbox:
   type: bwrap
