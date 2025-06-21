@@ -37,7 +37,6 @@ sandbox:
     - ~/.local:~/.local
   ro-bind:
     - "$APPDIR:$APPDIR"
-    - /lib64:/lib64
     - /lib/aarch64-linux-gnu:/lib/aarch64-linux-gnu
     - /usr/share/terminfo:/usr/share/terminfo
   bwrap_env:

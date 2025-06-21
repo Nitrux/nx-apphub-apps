@@ -206,7 +206,6 @@ sandbox:
   ro-bind:
     - "$APPDIR:$APPDIR"
     - /lib:/lib
-    - /lib64:/lib64
     - /usr:/usr
     - /etc/fonts:/etc/fonts
     - /etc/xdg:/etc/xdg
