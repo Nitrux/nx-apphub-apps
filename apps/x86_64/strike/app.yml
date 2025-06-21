@@ -3,7 +3,7 @@
 
 buildinfo:
   name: strike
-  version: 4.0.1-1
+  version: 2.0.1-1
   binarypath: /usr/bin/strike
   distrorepo:
     - distro: debian
@@ -145,11 +145,11 @@ buildinfo:
     - libxkbcommon0
     - libxkbfile1
     - libxml2
-    - maui-manager-git
-    - mauikit-filebrowsing-git
-    - mauikit-git
-    - mauikit-terminal-git
-    - mauikit-texteditor-git
+    - maui-manager
+    - mauikit-filebrowsing
+    - mauikit
+    - mauikit-terminal
+    - mauikit-texteditor
     - qml6-module-org-kde-kirigami
     - qml6-module-org-kde-sonnet
     - qml6-module-qtcore
@@ -165,7 +165,7 @@ buildinfo:
     - qml6-module-qtquick-window
     - qt6-svg-plugins
     - qt6-wayland
-    - strike-git
+    - strike
     - xkb-data
   runtime: uruntime
 

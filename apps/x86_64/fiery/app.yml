@@ -13,7 +13,7 @@ buildinfo:
       release: forky
       arch: amd64
   deps:
-    - fiery-git
+    - fiery
     - kio-extras
     - kio6
     - libb2-1
@@ -157,9 +157,9 @@ buildinfo:
     - libxrender1
     - libxslt1.1
     - libxtst6
-    - maui-manager-git
-    - mauikit-filebrowsing-git
-    - mauikit-git
+    - maui-manager
+    - mauikit-filebrowsing
+    - mauikit
     - qml6-module-org-kde-kirigami
     - qml6-module-qtcore
     - qml6-module-qtmultimedia

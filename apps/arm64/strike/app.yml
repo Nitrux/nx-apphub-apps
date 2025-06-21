@@ -2,9 +2,9 @@
 # nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
 
 buildinfo:
-  name: fiery
+  name: strike
   version: 2.0.1-1
-  binarypath: /usr/bin/fiery
+  binarypath: /usr/bin/strike
   distrorepo:
     - distro: debian
       release: testing
@@ -13,7 +13,6 @@ buildinfo:
       release: forky
       arch: arm64
   deps:
-    - fiery
     - kio-extras
     - kio6
     - libb2-1
@@ -35,8 +34,6 @@ buildinfo:
     - libicu72
     - libimobiledevice-1.0-6
     - libimobiledevice-glue-1.0-0
-    - libjbig0
-    - libjpeg62-turbo
     - libkf6archive6
     - libkf6authcore6
     - libkf6bookmarks6
@@ -66,8 +63,12 @@ buildinfo:
     - libkf6kiogui6
     - libkf6kiowidgets6
     - libkf6notifications6
+    - libkf6pty6
     - libkf6service6
     - libkf6solid6
+    - libkf6sonnetcore6
+    - libkf6sonnetui6
+    - libkf6syntaxhighlighting6
     - libkf6textwidgets6
     - libkf6widgetsaddons6
     - libkf6windowsystem6
@@ -92,8 +93,6 @@ buildinfo:
     - libnss3
     - libogg0
     - libopengl0
-    - libopenjp2-7
-    - libopus0
     - libpcre2-16-0
     - libplist-2.0-4
     - libpng16-16t64
@@ -106,6 +105,7 @@ buildinfo:
     - libqt6network6
     - libqt6opengl6
     - libqt6positioning6
+    - libqt6printsupport6
     - libqt6qml6
     - libqt6qmlmodels6
     - libqt6qmlworkerscript6
@@ -117,14 +117,9 @@ buildinfo:
     - libqt6sql6
     - libqt6sql6-sqlite
     - libqt6svg6
+    - libqt6texttospeech6
     - libqt6waylandclient6
     - libqt6waylandcompositor6
-    - libqt6webchannel6
-    - libqt6webchannelquick6
-    - libqt6webengine6-data
-    - libqt6webenginecore6
-    - libqt6webenginecore6-bin
-    - libqt6webenginequick6
     - libqt6widgets6
     - libqt6wlshellintegration6
     - libqt6xml6
@@ -142,9 +137,6 @@ buildinfo:
     - libwayland-client0
     - libwayland-cursor0
     - libwayland-egl1
-    - libwebp7
-    - libwebpdemux2
-    - libwebpmux3
     - libxcb-keysyms1
     - libxcb-res0
     - libxcomposite1
@@ -153,14 +145,13 @@ buildinfo:
     - libxkbcommon0
     - libxkbfile1
     - libxml2
-    - libxrandr2
-    - libxrender1
-    - libxslt1.1
-    - libxtst6
     - maui-manager
     - mauikit-filebrowsing
     - mauikit
+    - mauikit-terminal
+    - mauikit-texteditor
     - qml6-module-org-kde-kirigami
+    - qml6-module-org-kde-sonnet
     - qml6-module-qtcore
     - qml6-module-qtmultimedia
     - qml6-module-qtqml
@@ -172,31 +163,30 @@ buildinfo:
     - qml6-module-qtquick-templates
     - qml6-module-qtquick-tooling
     - qml6-module-qtquick-window
-    - qml6-module-qtwebengine
     - qt6-svg-plugins
     - qt6-wayland
+    - strike
     - xkb-data
   runtime: uruntime
 
 apprunconf:
   setpath: "/usr/bin"
   setlibpath: "/usr/lib"
-  exec: "/usr/bin/fiery"
+  exec: "/usr/bin/strike"
   envvars:
     QT_QPA_PLATFORM: "wayland;xcb"
     QT_PLUGIN_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/plugins"
     QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/qml:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/qml"
     QML_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt6/qml"
     QML2_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/qml"
-    QTWEBENGINEPROCESS_PATH: "$APPDIR/usr/lib/qt6/libexec/QtWebEngineProcess"
-    QTWEBENGINE_RESOURCES_PATH: "$APPDIR/usr/share/qt6/resources"
-    QTWEBENGINE_LOCALES_PATH: "$APPDIR/usr/share/qt6/translations/qtwebengine_locales"
     SESSION_MANAGER: ""
     XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
   prebuild_commands:
     - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKitFileBrowsing4.so.4.0.1 libMauiKitFileBrowsing4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKitTerminal4.so.4.0.1 libMauiKitTerminal4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKitTextEditor4.so.4.0.1 libMauiKitTextEditor4.so.4 && cd -"
 
 sandbox:
   type: bwrap
@@ -229,4 +219,4 @@ sandbox:
     - DISPLAY
 
 integration:
-  typ: gui
+  type: gui
