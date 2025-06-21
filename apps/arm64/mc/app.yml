@@ -1,0 +1,35 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: mc
+  version: 3:4.8.33-1
+  binarypath: /usr/bin/mc
+  distrorepo:
+    - distro: debian
+      release: testing
+      arch: arm64
+  deps:
+    - libext2fs2t64
+    - libgpm2
+    - libslang2
+    - libssh2-1t64
+    - libx11-6
+    - mc
+    - mc-data
+  runtime: uruntime
+
+apprunconf:
+  setpath: "/usr/bin"
+  setlibpath: "/usr/lib"
+  exec: "/usr/bin/mc"
+  envvars:
+    MC_DATADIR: "$APPDIR/usr/share/mc"
+
+sandbox:
+  type: firejail
+  name: mc
+  aa_profile: none
+
+integration:
+  type: cli

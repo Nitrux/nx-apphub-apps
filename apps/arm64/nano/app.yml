@@ -1,0 +1,49 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: nano
+  version: 8.4-1
+  binarypath: /usr/bin/nano
+  distrorepo:
+    - distro: debian
+      release: unstable
+      arch: arm64
+  deps:
+    - libncursesw6
+    - libtinfo6
+    - nano
+  runtime: uruntime
+
+apprunconf:
+  setpath: "/usr/bin"
+  setlibpath: "/usr/lib"
+  exec: "/usr/bin/nano"
+  envvars: {}
+  prebuild_commands: []
+
+sandbox:
+  type: bwrap
+  dev: true
+  proc: true
+  tmpfs: true
+  unshare-user: true
+  unshare-uts: true
+  cap-drop-all: true
+  die-with-parent: true
+  bind:
+    - - "$HOME:$HOME"
+    - ~/.config:~/.config
+    - ~/.local:~/.local
+  ro-bind:
+    - "$APPDIR:$APPDIR"
+    - /lib64:/lib64
+    - /lib/aarch64-linux-gnu:/lib/aarch64-linux-gnu
+    - /usr/share/terminfo:/usr/share/terminfo
+  bwrap_env:
+    - HOME: "$HOME"
+  bwrap_unset-env:
+    - DISPLAY
+
+integration:
+  type: cli
