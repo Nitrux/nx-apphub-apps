@@ -32,7 +32,7 @@ sandbox:
   cap-drop-all: true
   die-with-parent: true
   bind:
-    - - "$HOME:$HOME"
+    - $HOME:$HOME"
     - ~/.config:~/.config
     - ~/.local:~/.local
   ro-bind:
