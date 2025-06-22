@@ -173,6 +173,7 @@ buildinfo:
     - qml6-module-qtquick-tooling
     - qml6-module-qtquick-window
     - qml6-module-qtwebengine
+    - qt6-gtk-platformtheme
     - qt6-svg-plugins
     - qt6-wayland
     - xkb-data

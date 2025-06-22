@@ -174,7 +174,6 @@ buildinfo:
     - qml6-module-qtquick-templates
     - qml6-module-qtquick-tooling
     - qml6-module-qtquick-window
-    - qt5-gtk-platformtheme
     - qt6-gtk-platformtheme
     - qt6-svg-plugins
     - qt6-wayland
