@@ -67,8 +67,6 @@ buildinfo:
     - libuuid1
     - libwacom-common
     - libwacom9
-    - libwayland-client0
-    - libwayland-server0
     - libxaw7
     - libxcb-composite0
     - libxcb-errors0

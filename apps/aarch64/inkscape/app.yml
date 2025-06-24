@@ -86,9 +86,6 @@ buildinfo:
     - libthai0
     - libtiff6
     - libvisio-0.1-1
-    - libwayland-client0
-    - libwayland-cursor0
-    - libwayland-egl1
     - libwebp7
     - libwpd-0.10-10
     - libwpg-0.3-3

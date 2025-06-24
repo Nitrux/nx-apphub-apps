@@ -97,7 +97,6 @@ buildinfo:
     - libnspr4
     - libnss3
     - libogg0
-    - libopengl0
     - libopus0
     - libpcre2-16-0
     - libplist-2.0-4
@@ -144,9 +143,6 @@ buildinfo:
     - libvorbis0a
     - libvorbisenc2
     - libvorbisfile3
-    - libwayland-client0
-    - libwayland-cursor0
-    - libwayland-egl1
     - libxcb-keysyms1
     - libxcb-res0
     - libxcomposite1

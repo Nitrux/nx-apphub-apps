@@ -91,7 +91,6 @@ buildinfo:
     - libnspr4
     - libnss3
     - libogg0
-    - libopengl0
     - libopenjp2-7
     - libopus0
     - libpcre2-16-0
@@ -139,9 +138,6 @@ buildinfo:
     - libusbmuxd-2.0-7
     - libvorbis0a
     - libvorbisfile3
-    - libwayland-client0
-    - libwayland-cursor0
-    - libwayland-egl1
     - libwebp7
     - libwebpdemux2
     - libwebpmux3
