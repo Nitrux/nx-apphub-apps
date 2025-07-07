@@ -154,8 +154,8 @@ buildinfo:
     - libxslt1.1
     - libxtst6
     - maui-manager
-    - mauikit-filebrowsing
     - mauikit
+    - mauikit-filebrowsing
     - qml6-module-org-kde-kirigami
     - qml6-module-qtcore
     - qml6-module-qtmultimedia
