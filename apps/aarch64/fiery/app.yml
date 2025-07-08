@@ -80,7 +80,7 @@ buildinfo:
     - libkirigamiprimitives6
     - libkirigamiprivate6
     - liblcms2-2
-    - libldap-2.5-0
+    - libldap2
     - liblerc4
     - libltdl7
     - libmd4c0
@@ -225,4 +225,4 @@ sandbox:
     - DISPLAY
 
 integration:
-  typ: gui
+  type: gui
