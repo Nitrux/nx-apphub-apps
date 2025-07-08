@@ -32,7 +32,7 @@ buildinfo:
     - libgraphite2-3
     - libharfbuzz-subset0
     - libharfbuzz0b
-    - libicu72
+    - libicu76
     - libimobiledevice-1.0-6
     - libimobiledevice-glue-1.0-0
     - libjbig0
