@@ -191,9 +191,9 @@ apprunconf:
     SESSION_MANAGER: ""
     XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
   prebuild_commands:
-    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKit4.so.4.0.1 libMauiKit4.so.4 && cd -"
-    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiMan4.so.4.0.1 libMauiMan4.so.4 && cd -"
-    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKitFileBrowsing4.so.4.0.1 libMauiKitFileBrowsing4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKit4.so.4.0.2 libMauiKit4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiMan4.so.4.0.2 libMauiMan4.so.4 && cd -"
+    - "cd $APPDIR/usr/lib/aarch64-linux-gnu && ln -sv libMauiKitFileBrowsing4.so.4.0.2 libMauiKitFileBrowsing4.so.4 && cd -"
 
 sandbox:
   type: bwrap
