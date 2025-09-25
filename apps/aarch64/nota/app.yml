@@ -211,13 +211,15 @@ sandbox:
     - ~/.local:~/.local
     - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
     - /dev/shm:/dev/shm
+    - /dev/dri:/dev/dri
   ro-bind:
     - "$APPDIR:$APPDIR"
     - /lib:/lib
-    - /lib64:/lib64
     - /usr:/usr
     - /etc/fonts:/etc/fonts
     - /etc/xdg:/etc/xdg
+    - /etc/alternatives:/etc/alternatives
+    - /usr/lib/mesa-diverted:/usr/lib/mesa-diverted
   bwrap_env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
