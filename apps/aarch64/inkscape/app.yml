@@ -136,7 +136,6 @@ sandbox:
     - /etc/fonts:/etc/fonts
     - /etc/xdg:/etc/xdg
     - /etc/alternatives:/etc/alternatives
-    - /usr/lib/mesa-diverted:/usr/lib/mesa-diverted
   bwrap_env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
