@@ -230,10 +230,7 @@ sandbox:
     - /etc/resolv.conf:/etc/resolv.conf
     - /etc/profile:/etc/profile
     - /etc/profile.d:/etc/profile.d
-    - /etc/zsh:/etc/zsh 
-    - /etc/zshenv:/etc/zshenv
-    - /etc/zprofile:/etc/zprofile
-    - /etc/zshrc:/etc/zshrc
+    - /etc/zsh:/etc/zsh
     - /etc/environment:/etc/environment
     - /etc/login.defs:/etc/login.defs
   bwrap_env:
