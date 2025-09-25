@@ -210,19 +210,39 @@ sandbox:
     - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
     - /dev/shm:/dev/shm
     - /dev/dri:/dev/dri
+    - /dev/pts:/dev/pts
   ro-bind:
     - "$APPDIR:$APPDIR"
     - /lib:/lib
     - /lib64:/lib64
     - /usr:/usr
+    - /bin:/bin
+    - /sbin:/sbin
     - /etc/fonts:/etc/fonts
     - /etc/xdg:/etc/xdg
     - /etc/alternatives:/etc/alternatives
+    - /etc/passwd:/etc/passwd
+    - /etc/group:/etc/group
+    - /etc/nsswitch.conf:/etc/nsswitch.conf
+    - /etc/shells:/etc/shells
+    - /etc/localtime:/etc/localtime
+    - /etc/hosts:/etc/hosts
+    - /etc/resolv.conf:/etc/resolv.conf
+    - /etc/profile:/etc/profile
+    - /etc/profile.d:/etc/profile.d
+    - /etc/zsh:/etc/zsh 
+    - /etc/zshenv:/etc/zshenv
+    - /etc/zprofile:/etc/zprofile
+    - /etc/zshrc:/etc/zshrc
+    - /etc/environment:/etc/environment
+    - /etc/login.defs:/etc/login.defs
   bwrap_env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
     - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
     - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    - TERM: "xterm-256color"
+    - PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   bwrap_unset-env:
     - DISPLAY
 
