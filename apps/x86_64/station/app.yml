@@ -193,6 +193,7 @@ apprunconf:
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKitTerminal4.so.4.0.2 libMauiKitTerminal4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKitTextEditor4.so.4.0.2 libMauiKitTextEditor4.so.4 && cd -"
     - "rm -f $APPDIR/usr/share/metainfo/org.kde.station.appdata.xml"
+    - 'curl -fsSL --retry 3 --create-dirs -o "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml/org/mauikit/terminal/color-schemes/catppuccin-mocha.colorscheme" "https://raw.githubusercontent.com/Nitrux/nitrux-desktop-settings/e5bf7b869cf7de52a57bdcb48817bc6c7301228d/usr/lib/x86_64-linux-gnu/qt6/qml/org/mauikit/terminal/color-schemes/catppuccin-mocha.colorscheme"'
 
 sandbox:
   type: bwrap
