@@ -235,6 +235,7 @@ sandbox:
     - /etc/zsh:/etc/zsh
     - /etc/environment:/etc/environment
     - /etc/login.defs:/etc/login.defs
+    - /etc/os-release:/etc/os-release
   bwrap_env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
