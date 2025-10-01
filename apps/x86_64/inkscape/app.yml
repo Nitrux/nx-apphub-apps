@@ -96,7 +96,7 @@ buildinfo:
     - libxi6
     - libxinerama1
     - libxkbcommon0
-    - libxml2
+    - libxml2-16
     - libxrandr2
     - libxrender1
     - libxslt1.1
@@ -110,6 +110,9 @@ apprunconf:
   envvars:
     XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
     FONTCONFIG_PATH: "$APPDIR/etc/fonts"
+    LD_LIBRARY_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/inkscape"
+  extra_rpaths:
+    - "$ORIGIN/../../../usr/lib/x86_64-linux-gnu/inkscape"
   prebuild_commands:
     - "rm -f $APPDIR/usr/share/metainfo/org.inkscape.Inkscape.appdata.xml"
 
