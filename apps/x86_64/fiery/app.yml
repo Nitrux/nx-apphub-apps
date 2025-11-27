@@ -148,7 +148,7 @@ buildinfo:
     - libxfixes3
     - libxkbcommon0
     - libxkbfile1
-    - libxml2
+    - libxml2-16
     - libxrandr2
     - libxrender1
     - libxslt1.1

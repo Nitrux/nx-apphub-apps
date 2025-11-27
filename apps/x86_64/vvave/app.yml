@@ -262,7 +262,7 @@ buildinfo:
     - libxkbcommon-x11-0
     - libxkbcommon0
     - libxkbfile1
-    - libxml2-16
+    - libxml2-16-16
     - libxslt1.1
     - libxvidcore4
     - libzmq5

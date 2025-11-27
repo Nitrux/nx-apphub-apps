@@ -96,7 +96,7 @@ buildinfo:
     - libxi6
     - libxinerama1
     - libxkbcommon0
-    - libxml2-16
+    - libxml2-16-16
     - libxrandr2
     - libxrender1
     - libxslt1.1

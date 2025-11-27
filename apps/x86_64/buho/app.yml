@@ -149,7 +149,7 @@ buildinfo:
     - libxfixes3
     - libxkbcommon0
     - libxkbfile1
-    - libxml2
+    - libxml2-16
     - maui-manager
     - mauikit
     - mauikit-accounts
