@@ -109,6 +109,10 @@ apprunconf:
   exec: "/usr/bin/inkscape"
   envvars:
     XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+    XDG_CURRENT_DESKTOP: "KDE"
+    KDE_FULL_SESSION: "true"
+    KDE_SESSION_VERSION: "6"
+    XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
     FONTCONFIG_PATH: "$APPDIR/etc/fonts"
     LD_LIBRARY_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/inkscape"
   extra_rpaths:

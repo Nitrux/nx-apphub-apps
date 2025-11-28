@@ -80,9 +80,12 @@ buildinfo:
     - libkirigamidelegates6
     - libkirigamidialogs6
     - libkirigamilayouts6
+    - libkirigamilayoutsprivate6
     - libkirigamiplatform6
+    - libkirigamipolyfill6
     - libkirigamiprimitives6
     - libkirigamiprivate6
+    - libkirigamitemplates6
     - liblcms2-2
     - libldap2
     - liblerc4
@@ -99,6 +102,7 @@ buildinfo:
     - libogg0
     - libopus0
     - libpcre2-16-0
+    - libplasmaactivities7
     - libplist-2.0-4
     - libpng16-16t64
     - libproxy1v5
@@ -179,12 +183,17 @@ apprunconf:
   exec: "/usr/bin/buho"
   envvars:
     QT_QPA_PLATFORM: "wayland;xcb"
+    QT_QPA_PLATFORMTHEME: ""
     QT_PLUGIN_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/plugins"
     QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml"
     QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml"
     QML2_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml"
     SESSION_MANAGER: ""
     XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+    XDG_CURRENT_DESKTOP: "KDE"
+    KDE_FULL_SESSION: "true"
+    KDE_SESSION_VERSION: "6"
+    XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
   prebuild_commands:
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiKit4.so.4.0.2 libMauiKit4.so.4 && cd -"
     - "cd $APPDIR/usr/lib/x86_64-linux-gnu && ln -sv libMauiMan4.so.4.0.2 libMauiMan4.so.4 && cd -"
@@ -224,6 +233,7 @@ sandbox:
     - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
   bwrap_unset-env:
     - DISPLAY
+    - QT_QPA_PLATFORMTHEME
 
 integration:
   type: gui

@@ -300,12 +300,17 @@ apprunconf:
   exec: "/usr/bin/vvave"
   envvars:
     QT_QPA_PLATFORM: "wayland;xcb"
+    QT_QPA_PLATFORMTHEME: ""
     QT_PLUGIN_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/plugins"
     QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/qml:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/qml"
     QML_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt6/qml"
     QML2_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/qml"
     SESSION_MANAGER: ""
     XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+    XDG_CURRENT_DESKTOP: "KDE"
+    KDE_FULL_SESSION: "true"
+    KDE_SESSION_VERSION: "6"
+    XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
     LD_LIBRARY_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/libproxy:$APPDIR/usr/lib/aarch64-linux-gnu/pulseaudio"
   extra_rpaths:
     - "$ORIGIN/../../../usr/lib/aarch64-linux-gnu/libproxy"
@@ -335,6 +340,7 @@ sandbox:
   ro-bind:
     - "$APPDIR:$APPDIR"
     - /lib:/lib
+    - /lib64:/lib64
     - /usr:/usr
     - /etc/fonts:/etc/fonts
     - /etc/xdg:/etc/xdg
@@ -346,6 +352,7 @@ sandbox:
     - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
   bwrap_unset-env:
     - DISPLAY
+    - QT_QPA_PLATFORMTHEME
 
 integration:
   type: gui
