@@ -11,7 +11,7 @@ You can use it alongside your Wayland compositor or window manager to build a co
 
 ## Category
 
-Not specified in metadata.
+AppHub.System
 
 ## Homepage
 

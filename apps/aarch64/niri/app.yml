@@ -1,0 +1,28 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: niri
+  version: v25.11
+  binarypath: /usr/bin/niri
+  distrorepo: 
+    - distro: nitrux
+      release: duke
+      arch: arm64
+  deps:
+    - niri
+  runtime: uruntime
+
+apprunconf:
+  exec: /usr/bin/niri
+  setpath: /usr/bin
+  setlibpath: /usr/lib
+  envvars:
+    XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+  prebuild_commands: []
+
+sandbox:
+  type: none
+
+integration:
+  type: wm
