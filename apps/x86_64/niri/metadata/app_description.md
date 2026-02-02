@@ -20,7 +20,7 @@ AppHub.System
 
 ## Homepage
 
-[https://quickshell.org/](https://quickshell.org/)
+[https://github.com/YaLTeR/niri](https://github.com/YaLTeR/niri)
 
 ## License
 
