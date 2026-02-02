@@ -2,24 +2,44 @@
 # nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
 
 buildinfo:
-  name: strike
-  version: 2.0.1-1
-  binarypath: /usr/bin/strike
+  name: clip
+  version: 4.0.2-1
+  binarypath: /usr/bin/clip
   distrorepo:
     - distro: debian
-      release: testing
-      arch: arm64    
+      release: stable
+      arch: arm64
     - distro: nitrux
       release: forky
       arch: arm64
   deps:
-    - strike
+    - clip
+    - libavutil59
+    - libavfilter10
+    - libavformat61
+    - libavcodec61
+    - libswscale8
+    - libpostproc58
+    - libswresample5
+    - libpocketsphinx3
+    - libsphinxbase3t64
+    - libplacebo349
+    - libbluray2
+    - libvpx9
+    - librav1e0.7
+    - libtheoraenc1
+    - libtheoradec1
+    - libx264-164
+    - libudfread0
+    - qml6-module-qt-labs-settings
+    - libblas3
+    - liblapack3
   runtime: uruntime
 
 apprunconf:
   setpath: "/usr/bin"
   setlibpath: "/usr/lib"
-  exec: "/usr/bin/strike"
+  exec: "/usr/bin/clip"
   envvars:
     QT_QPA_PLATFORM: "wayland;xcb"
     QT_QPA_PLATFORMTHEME: ""
@@ -33,7 +53,12 @@ apprunconf:
     KDE_FULL_SESSION: "true"
     KDE_SESSION_VERSION: "6"
     XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
-  prebuild_commands: []
+  extra_rpaths:
+    - "$ORIGIN/../../usr/lib/aarch64-linux-gnu/blas"
+    - "$ORIGIN/../../usr/lib/aarch64-linux-gnu/lapack"
+  prebuild_commands:
+    - "rm -f $APPDIR/usr/share/metainfo/org.kde.clip.appdata.xml"
+
 sandbox:
   type: bwrap
   dev: true
@@ -50,7 +75,6 @@ sandbox:
     - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
     - /dev/shm:/dev/shm
     - /dev/dri:/dev/dri
-    - /dev/pts:/dev/pts
   ro-bind:
     - "$APPDIR:$APPDIR"
     - /lib:/lib
@@ -60,26 +84,11 @@ sandbox:
     - /sbin:/sbin
     - /etc/fonts:/etc/fonts
     - /etc/xdg:/etc/xdg
-    - /etc/alternatives:/etc/alternatives
-    - /etc/passwd:/etc/passwd
-    - /etc/group:/etc/group
-    - /etc/nsswitch.conf:/etc/nsswitch.conf
-    - /etc/shells:/etc/shells
-    - /etc/localtime:/etc/localtime
-    - /etc/hosts:/etc/hosts
-    - /etc/resolv.conf:/etc/resolv.conf
-    - /etc/profile:/etc/profile
-    - /etc/profile.d:/etc/profile.d
-    - /etc/zsh:/etc/zsh
-    - /etc/environment:/etc/environment
-    - /etc/login.defs:/etc/login.defs
-    - /etc/os-release:/etc/os-release
   bwrap_env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
     - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
     - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
-    - TERM: "xterm-256color"
     - PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   bwrap_unset-env:
     - DISPLAY
