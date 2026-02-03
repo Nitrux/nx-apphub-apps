@@ -1,0 +1,56 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: plasma-desktop
+  version: 6.3.6-2
+  binarypath: /usr/bin/plasmashell
+  distrorepo:
+    - distro: debian
+      release: testing
+      arch: arm64    
+  deps:
+    - kwin-common
+    - kwin-wayland
+    - milou
+    - x11-utils
+    - x11-xserver-utils
+    - libplasma5support6
+    - plasma-workspace
+    - plasma-workspace-data
+    - plasma-desktop
+    - plasma-desktop-data
+    - libibus-1.0-5
+    - libkaccounts6-2
+    - libaccounts-qt6-1
+    - libkglobalaccelmodel6
+    - libaccounts-glib0
+    - libsignon-qt6-1
+    - libscim8v5
+  runtime: uruntime
+
+apprunconf:
+  setpath: "/usr/bin"
+  setlibpath: "/usr/lib"
+  exec: "/usr/bin/plasmashell"
+  envvars:
+    KDEDIRS: "$APPDIR/usr"
+    PLASMA_USE_SYSTEMD: "0"
+    QT_QPA_PLATFORM: "wayland;xcb"
+    QT_QPA_PLATFORMTHEME: ""
+    QT_PLUGIN_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/plugins"
+    QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/qml:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/qml"
+    QML_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt6/qml"
+    QML2_IMPORT_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/qml"
+    SESSION_MANAGER: ""
+    XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+    XDG_CURRENT_DESKTOP: "KDE"
+    KDE_FULL_SESSION: "true"
+    KDE_SESSION_VERSION: "6"
+    XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
+
+sandbox:
+  type: none
+
+integration:
+  type: wm
