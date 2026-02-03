@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2026 <Nitrux Latinoamericana S.C. <hello@nxos.org>>
+
+
+# -- Exit on errors.
+
+set -eu
+
+
+# -- Get the running directory of the AppImage.
+
+REALPATH=$(readlink -f "$0")
+APPDIR=$(dirname "$(dirname "$(dirname "$REALPATH")"))")
+
+
+# -- Ensure the require daemons are running.
+
+"$APPDIR/usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd" &
+sleep 1
+"$APPDIR/usr/bin/kded6" &
+sleep 1
+
+
+# -- Run the application.
+
+exec "$APPDIR/usr/bin/plasmashell" "$@"

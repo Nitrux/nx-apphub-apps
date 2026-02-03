@@ -10,29 +10,31 @@ buildinfo:
       release: testing
       arch: arm64    
   deps:
+    - kactivitymanagerd
+    - kded6
     - kwin-common
     - kwin-wayland
-    - milou
-    - x11-utils
-    - x11-xserver-utils
-    - libplasma5support6
-    - plasma-workspace
-    - plasma-workspace-data
-    - plasma-desktop
-    - plasma-desktop-data
+    - libaccounts-glib0
+    - libaccounts-qt6-1
     - libibus-1.0-5
     - libkaccounts6-2
-    - libaccounts-qt6-1
     - libkglobalaccelmodel6
-    - libaccounts-glib0
-    - libsignon-qt6-1
+    - libplasma5support6
     - libscim8v5
+    - libsignon-qt6-1
+    - milou
+    - plasma-desktop
+    - plasma-desktop-data
+    - plasma-workspace
+    - plasma-workspace-data
+    - x11-utils
+    - x11-xserver-utils
   runtime: uruntime
 
 apprunconf:
   setpath: "/usr/bin"
   setlibpath: "/usr/lib"
-  exec: "/usr/bin/plasmashell"
+  exec: "/usr/bin/plasma-startup-wrapper"
   envvars:
     KDEDIRS: "$APPDIR/usr"
     PLASMA_USE_SYSTEMD: "0"
@@ -48,9 +50,26 @@ apprunconf:
     KDE_FULL_SESSION: "true"
     KDE_SESSION_VERSION: "6"
     XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
+    XDG_DATA_DIRS: "$APPDIR/usr/share:$XDG_DATA_DIRS"
+    DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
+    XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    KSERVICE_FORCE_KDEGLOBALS: "1"
+    KDE_APPLICATIONS_AS_SCOPE: "1"
 
 sandbox:
-  type: none
+  type: bwrap
+  ro-root: true
+  dev: true
+  proc: true
+  bind:
+    - "~/.local/share/plasma-appimage:~/.config"
+    - "~/.local/share/plasma-appimage-data:~/.local/share"
+    - "~/.cache/plasma-appimage:~/.cache"
+  bind-try:
+    - "/tmp/.X11-unix:/tmp/.X11-unix"
+    - "/run/user:/run/user"
+  ro-bind-try:
+    - "~/.config/kdedefaults:~/.config/kdedefaults"
 
 integration:
-  type: wm
+  type: gui
