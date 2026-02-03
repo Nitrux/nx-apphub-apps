@@ -3,7 +3,7 @@
 
 buildinfo:
   name: mc
-  version: 3:4.8.33-1.1
+  version: 3:4.8.33-1
   binarypath: /usr/bin/mc
   distrorepo:
     - distro: debian
