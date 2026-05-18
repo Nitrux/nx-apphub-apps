@@ -30,6 +30,7 @@ buildinfo:
     - plasma-desktop-data
     - plasma-workspace
     - plasma-workspace-data
+    - qml6-module-org-kde-plasma-plasma5support
     - x11-utils
     - x11-xserver-utils
   runtime: uruntime
@@ -75,4 +76,5 @@ sandbox:
     - "~/.config/kdedefaults:~/.config/kdedefaults"
 
 integration:
-  type: gui
+  type: cli
+  launcher: org.kde.plasmashell.desktop
