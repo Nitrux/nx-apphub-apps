@@ -3,12 +3,15 @@
 
 buildinfo:
   name: nano
-  version: 8.7-1
+  version: 9.0-1
   binarypath: /usr/bin/nano
   distrorepo:
-    - distro: debian
-      release: unstable
+    - distro: debian-snapshot
+      snapshot: 20260514T142722Z
+      release: testing
       arch: amd64
+      components:
+        - main
   deps:
     - libncursesw6
     - libtinfo6

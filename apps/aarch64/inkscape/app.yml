@@ -3,12 +3,15 @@
 
 buildinfo:
   name: inkscape
-  version: 1.4-6
+  version: 1.4.3-1
   binarypath: /usr/bin/inkscape
   distrorepo:
-    - distro: debian
-      release: unstable
-      arch: arm64
+    - distro: debian-snapshot
+      snapshot: 20260514T142722Z
+      release: testing
+      arch: amd64
+      components:
+        - main
   deps:
     - inkscape
     - libgsl28
