@@ -5,6 +5,7 @@ buildinfo:
   name: quickshell
   version: 0.3.0ppa2
   binarypath: /usr/bin/quickshell
+  os-target: 6.1.0
   distrorepo:
     - distro: debian-snapshot
       snapshot: 20260514T142722Z
@@ -38,7 +39,7 @@ apprunconf:
     KDE_FULL_SESSION: "true"
     KDE_SESSION_VERSION: "6"
     XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
-  prebuild_commands: []
+  prebuild-commands: []
 
 sandbox:
   type: bwrap
@@ -67,14 +68,14 @@ sandbox:
     - /etc/fonts:/etc/fonts
     - /etc/xdg:/etc/xdg
     - /etc/alternatives:/etc/alternatives
-  bwrap_env:
+  bwrap-env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
     - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
     - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
     - DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
     - DBUS_SYSTEM_BUS_ADDRESS: "unix:path=/run/dbus/system_bus_socket"
-  bwrap_unset-env:
+  bwrap-unset-env:
     - DISPLAY
     - QT_QPA_PLATFORMTHEME
 

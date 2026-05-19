@@ -5,6 +5,7 @@ buildinfo:
   name: vim
   version: 2:9.2.0461-1
   binarypath: /usr/bin/vim.basic
+  os-target: 6.1.0
   distrorepo:
     - distro: debian-snapshot
       snapshot: 20260514T142722Z
@@ -28,12 +29,12 @@ apprunconf:
   setpath: /usr/bin
   setlibpath: /usr/lib
   envvars: {}
-  prebuild_commands: []
+  prebuild-commands: []
 
 sandbox:
   type: firejail
   name: vim
-  aa_profile: none
+  aa-profile: none
 
 integration:
   type: cli

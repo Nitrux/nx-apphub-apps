@@ -5,6 +5,7 @@ buildinfo:
   name: clip
   version: 4.0.3-1
   binarypath: /usr/bin/clip
+  os-target: 6.1.0
   distrorepo:
     - distro: debian-snapshot
       snapshot: 20260514T142722Z
@@ -50,10 +51,10 @@ apprunconf:
     KDE_FULL_SESSION: "true"
     KDE_SESSION_VERSION: "6"
     XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
-  extra_rpaths:
+  extra-rpaths:
     - "$ORIGIN/../../usr/lib/x86_64-linux-gnu/blas"
     - "$ORIGIN/../../usr/lib/x86_64-linux-gnu/lapack"
-  prebuild_commands:
+  prebuild-commands:
     - "rm -f $APPDIR/usr/share/metainfo/org.kde.clip.appdata.xml"
 
 sandbox:
@@ -81,13 +82,13 @@ sandbox:
     - /sbin:/sbin
     - /etc/fonts:/etc/fonts
     - /etc/xdg:/etc/xdg
-  bwrap_env:
+  bwrap-env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
     - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
     - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
     - PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  bwrap_unset-env:
+  bwrap-unset-env:
     - DISPLAY
     - QT_QPA_PLATFORMTHEME
 

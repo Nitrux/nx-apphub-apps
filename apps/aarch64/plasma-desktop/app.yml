@@ -5,6 +5,7 @@ buildinfo:
   name: plasma-desktop
   version: 4:6.6.4-1
   binarypath: /usr/bin/plasmashell
+  os-target: 6.1.0
   distrorepo:
     - distro: debian-snapshot
       snapshot: 20260514T142722Z
@@ -79,7 +80,7 @@ sandbox:
     - /tmp:/tmp
   ro-bind-try:
     - ~/.config/kdedefaults:~/.config/kdedefaults
-  bwrap_env:
+  bwrap-env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
     - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"

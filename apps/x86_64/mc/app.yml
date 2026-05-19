@@ -5,6 +5,7 @@ buildinfo:
   name: mc
   version: 3:4.8.33-1.1
   binarypath: /usr/bin/mc
+  os-target: 6.1.0
   distrorepo:
     - distro: debian-snapshot
       snapshot: 20260514T142722Z
@@ -32,7 +33,7 @@ apprunconf:
 sandbox:
   type: firejail
   name: mc
-  aa_profile: none
+  aa-profile: none
 
 integration:
   type: cli
