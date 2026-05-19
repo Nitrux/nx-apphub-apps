@@ -1,0 +1,83 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: quickshell
+  version: 0.3.0ppa2
+  binarypath: /usr/bin/quickshell
+  distrorepo:
+    - distro: debian-snapshot
+      snapshot: 20260514T142722Z
+      release: testing
+      arch: amd64
+      components:
+        - main
+    - distro: nitrux
+      release: duke
+      arch: amd64
+  deps:
+    - libcpptrace1
+    - libdwarf1
+    - quickshell
+  runtime: uruntime
+
+apprunconf:
+  setpath: "/usr/bin"
+  setlibpath: "/usr/lib"
+  exec: "/usr/bin/quickshell"
+  envvars:
+    QT_QPA_PLATFORM: "wayland;xcb"
+    QT_QPA_PLATFORMTHEME: ""
+    QT_PLUGIN_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/plugins"
+    QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml:$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml"
+    QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml"
+    QML2_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt5/qml"
+    SESSION_MANAGER: ""
+    XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+    XDG_CURRENT_DESKTOP: "KDE"
+    KDE_FULL_SESSION: "true"
+    KDE_SESSION_VERSION: "6"
+    XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
+  prebuild_commands: []
+
+sandbox:
+  type: bwrap
+  dev: true
+  proc: true
+  tmpfs: true
+  unshare-user: true
+  unshare-uts: true
+  cap-drop-all: true
+  die-with-parent: true
+  bind:
+    - "$HOME:$HOME"
+    - ~/.config:~/.config
+    - ~/.local:~/.local
+    - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
+    - /dev/shm:/dev/shm
+    - /dev/dri:/dev/dri
+  bind-try:
+    - /run/dbus:/run/dbus
+    - /tmp:/tmp
+  ro-bind:
+    - "$APPDIR:$APPDIR"
+    - /lib:/lib
+    - /lib64:/lib64
+    - /usr:/usr
+    - /etc/fonts:/etc/fonts
+    - /etc/xdg:/etc/xdg
+    - /etc/alternatives:/etc/alternatives
+  bwrap_env:
+    - HOME: "$HOME"
+    - LANG: "en_US.UTF-8"
+    - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    - DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
+    - DBUS_SYSTEM_BUS_ADDRESS: "unix:path=/run/dbus/system_bus_socket"
+  bwrap_unset-env:
+    - DISPLAY
+    - QT_QPA_PLATFORMTHEME
+
+integration:
+  type: cli
+  launcher: org.quickshell.desktop
