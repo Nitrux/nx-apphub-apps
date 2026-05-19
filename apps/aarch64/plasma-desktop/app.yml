@@ -65,15 +65,27 @@ sandbox:
   ro-root: true
   dev: true
   proc: true
+  die-with-parent: true
   bind:
-    - "~/.local/share/plasma-appimage:~/.config"
-    - "~/.local/share/plasma-appimage-data:~/.local/share"
-    - "~/.cache/plasma-appimage:~/.cache"
+    - ~/.local/share/plasma-appimage:~/.config
+    - ~/.local/share/plasma-appimage-data:~/.local/share
+    - ~/.cache/plasma-appimage:~/.cache
+    - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
+    - /dev/shm:/dev/shm
+    - /dev/dri/renderD128:/dev/dri/renderD128
   bind-try:
-    - "/tmp/.X11-unix:/tmp/.X11-unix"
-    - "/run/user:/run/user"
+    - /run/dbus:/run/dbus
+    - /run/udev:/run/udev
+    - /tmp:/tmp
   ro-bind-try:
-    - "~/.config/kdedefaults:~/.config/kdedefaults"
+    - ~/.config/kdedefaults:~/.config/kdedefaults
+  bwrap_env:
+    - HOME: "$HOME"
+    - LANG: "en_US.UTF-8"
+    - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    - DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
+    - DBUS_SYSTEM_BUS_ADDRESS: "unix:path=/run/dbus/system_bus_socket"
 
 integration:
   type: cli
