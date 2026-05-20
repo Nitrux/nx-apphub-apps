@@ -2,9 +2,9 @@
 # nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
 
 buildinfo:
-  name: plasma-desktop
-  version: 4:6.6.4-1
-  binarypath: /usr/bin/plasmashell
+  name: quickshell
+  version: 0.3.0ppa2
+  binarypath: /usr/bin/quickshell
   os-target: 6.1.0
   distrorepo:
     - distro: debian-snapshot
@@ -12,37 +12,21 @@ buildinfo:
       release: testing
       arch: arm64
       components:
-        - main   
+        - main
+    - distro: nitrux
+      release: duke
+      arch: arm64
   deps:
-    - kactivitymanagerd
-    - kded6
-    - kwin-common
-    - kwin-wayland
-    - libaccounts-glib0
-    - libaccounts-qt6-1
-    - libibus-1.0-5
-    - libkaccounts6-2
-    - libkglobalaccelmodel6
-    - libplasma5support6
-    - libscim8v5
-    - libsignon-qt6-1
-    - milou
-    - plasma-desktop
-    - plasma-desktop-data
-    - plasma-workspace
-    - plasma-workspace-data
-    - qml6-module-org-kde-plasma-plasma5support
-    - x11-utils
-    - x11-xserver-utils
+    - libcpptrace1
+    - libdwarf1
+    - quickshell
   runtime: uruntime
 
 apprunconf:
   setpath: "/usr/bin"
   setlibpath: "/usr/lib"
-  exec: "/usr/bin/plasma-startup-wrapper"
+  exec: "/usr/bin/quickshell"
   envvars:
-    KDEDIRS: "$APPDIR/usr"
-    PLASMA_USE_SYSTEMD: "0"
     QT_QPA_PLATFORM: "wayland;xcb"
     QT_QPA_PLATFORMTHEME: ""
     QT_PLUGIN_PATH: "$APPDIR/usr/lib/aarch64-linux-gnu/qt5/plugins:$APPDIR/usr/lib/aarch64-linux-gnu/qt6/plugins"
@@ -55,31 +39,35 @@ apprunconf:
     KDE_FULL_SESSION: "true"
     KDE_SESSION_VERSION: "6"
     XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
-    XDG_DATA_DIRS: "$APPDIR/usr/share:$XDG_DATA_DIRS"
-    DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
-    XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
-    KSERVICE_FORCE_KDEGLOBALS: "1"
-    KDE_APPLICATIONS_AS_SCOPE: "1"
+  prebuild-commands: []
 
 sandbox:
   type: bwrap
-  ro-root: true
   dev: true
   proc: true
+  tmpfs: true
+  unshare-user: true
+  unshare-uts: true
+  cap-drop-all: true
   die-with-parent: true
   bind:
-    - ~/.local/share/plasma-appimage:~/.config
-    - ~/.local/share/plasma-appimage-data:~/.local/share
-    - ~/.cache/plasma-appimage:~/.cache
+    - "$HOME:$HOME"
+    - ~/.config:~/.config
+    - ~/.local:~/.local
     - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
     - /dev/shm:/dev/shm
-    - /dev/dri/renderD128:/dev/dri/renderD128
+    - /dev/dri:/dev/dri
   bind-try:
     - /run/dbus:/run/dbus
-    - /run/udev:/run/udev
     - /tmp:/tmp
-  ro-bind-try:
-    - ~/.config/kdedefaults:~/.config/kdedefaults
+  ro-bind:
+    - "$APPDIR:$APPDIR"
+    - /lib:/lib
+    - /lib64:/lib64
+    - /usr:/usr
+    - /etc/fonts:/etc/fonts
+    - /etc/xdg:/etc/xdg
+    - /etc/alternatives:/etc/alternatives
   bwrap-env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
@@ -87,7 +75,10 @@ sandbox:
     - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
     - DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
     - DBUS_SYSTEM_BUS_ADDRESS: "unix:path=/run/dbus/system_bus_socket"
+  bwrap-unset-env:
+    - DISPLAY
+    - QT_QPA_PLATFORMTHEME
 
 integration:
   type: cli
-  launcher: org.kde.plasmashell.desktop
+  launcher: org.quickshell.desktop
