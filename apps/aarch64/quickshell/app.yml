@@ -39,16 +39,15 @@ apprunconf:
     KDE_FULL_SESSION: "true"
     KDE_SESSION_VERSION: "6"
     XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
-  prebuild-commands: []
+    XDG_DATA_DIRS: "$APPDIR/usr/share:$XDG_DATA_DIRS"
+    DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
+    XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
 
 sandbox:
   type: bwrap
+  ro-root: true
   dev: true
   proc: true
-  tmpfs: true
-  unshare-user: true
-  unshare-uts: true
-  cap-drop-all: true
   die-with-parent: true
   bind:
     - "$HOME:$HOME"
@@ -56,18 +55,13 @@ sandbox:
     - ~/.local:~/.local
     - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
     - /dev/shm:/dev/shm
-    - /dev/dri:/dev/dri
+    - /dev/dri/renderD128:/dev/dri/renderD128
   bind-try:
     - /run/dbus:/run/dbus
+    - /run/udev:/run/udev
     - /tmp:/tmp
-  ro-bind:
-    - "$APPDIR:$APPDIR"
-    - /lib:/lib
-    - /lib64:/lib64
-    - /usr:/usr
-    - /etc/fonts:/etc/fonts
-    - /etc/xdg:/etc/xdg
-    - /etc/alternatives:/etc/alternatives
+  ro-bind-try:
+    - ~/.config/kdedefaults:~/.config/kdedefaults
   bwrap-env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
@@ -75,9 +69,6 @@ sandbox:
     - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
     - DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
     - DBUS_SYSTEM_BUS_ADDRESS: "unix:path=/run/dbus/system_bus_socket"
-  bwrap-unset-env:
-    - DISPLAY
-    - QT_QPA_PLATFORMTHEME
 
 integration:
   type: cli
