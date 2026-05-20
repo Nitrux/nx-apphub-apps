@@ -3,7 +3,7 @@
 
 buildinfo:
   name: fastfetch
-  version: 2.58.0
+  version: 2.63.1
   binarypath: /usr/bin/fastfetch
   os-target: 6.1.0
   distrorepo:
@@ -23,12 +23,9 @@ apprunconf:
 
 sandbox:
   type: bwrap
+  ro-root: true
   dev: true
   proc: true
-  tmpfs: true
-  unshare-user: true
-  unshare-uts: true
-  cap-drop-all: true
   die-with-parent: true
   bind:
     - "$HOME:$HOME"
@@ -36,39 +33,18 @@ sandbox:
     - ~/.local:~/.local
     - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
     - /dev/shm:/dev/shm
-    - /dev/dri:/dev/dri
-    - /dev/pts:/dev/pts
-  ro-bind:
-    - "$APPDIR:$APPDIR"
-    - /lib:/lib
-    - /lib64:/lib64
-    - /usr:/usr
-    - /bin:/bin
-    - /sbin:/sbin
-    - /etc/fonts:/etc/fonts
-    - /etc/xdg:/etc/xdg
-    - /etc/alternatives:/etc/alternatives
-    - /etc/passwd:/etc/passwd
-    - /etc/group:/etc/group
-    - /etc/nsswitch.conf:/etc/nsswitch.conf
-    - /etc/shells:/etc/shells
-    - /etc/localtime:/etc/localtime
-    - /etc/hosts:/etc/hosts
-    - /etc/resolv.conf:/etc/resolv.conf
-    - /etc/profile:/etc/profile
-    - /etc/profile.d:/etc/profile.d
-    - /etc/zsh:/etc/zsh
-    - /etc/environment:/etc/environment
-    - /etc/login.defs:/etc/login.defs
-    - /etc/os-release:/etc/os-release
+    - /dev/dri/renderD128:/dev/dri/renderD128
+  bind-try:
+    - /run/dbus:/run/dbus
+    - /run/udev:/run/udev
+    - /tmp:/tmp
   bwrap-env:
     - HOME: "$HOME"
     - LANG: "en_US.UTF-8"
     - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
     - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
-    - TERM: "xterm-256color"
-    - PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-  bwrap-unset-env:
-    - DISPLAY
+    - DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
+    - DBUS_SYSTEM_BUS_ADDRESS: "unix:path=/run/dbus/system_bus_socket"
+
 integration:
   type: cli
