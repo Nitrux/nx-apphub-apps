@@ -5,7 +5,7 @@ buildinfo:
   name: inkscape
   version: 1.4.3-1
   binarypath: /usr/bin/inkscape
-  os-target: 6.1.0
+  os-target: 7.0.0
   distrorepo:
     - distro: debian-snapshot
       snapshot: 20260514T142722Z
