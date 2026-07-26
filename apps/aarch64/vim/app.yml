@@ -8,7 +8,7 @@ buildinfo:
   os-target: 6.1.0
   distrorepo:
     - distro: debian-snapshot
-      snapshot: 20260514T142722Z
+      snapshot: 20260725T202958Z
       release: testing
       arch: arm64
       components:

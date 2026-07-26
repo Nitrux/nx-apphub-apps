@@ -8,7 +8,7 @@ buildinfo:
   os-target: 7.0.0
   distrorepo:
     - distro: debian-snapshot
-      snapshot: 20260514T142722Z
+      snapshot: 20260725T202958Z
       release: testing
       arch: amd64
       components:
