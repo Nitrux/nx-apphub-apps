@@ -35,6 +35,7 @@ buildinfo:
     - libpangomm-1.4-1v5
     - libcairomm-1.0-1v5
     - libsigc++-2.0-0v5
+    - libgtkmm-3.0-1t64
   runtime: uruntime
 
 apprunconf:
