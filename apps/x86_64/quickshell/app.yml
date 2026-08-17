@@ -3,19 +3,16 @@
 
 buildinfo:
   name: quickshell
-  version: 0.3.0ppa2
+  version: 0.3.0-1
   binarypath: /usr/bin/quickshell
-  os-target: 6.1.0
+  os-target: 7.0.0
   distrorepo:
     - distro: debian-snapshot
       snapshot: 20260725T202958Z
       release: testing
-      arch: amd64
+      arch: arm64
       components:
-        - main
-    - distro: nitrux
-      release: duke
-      arch: amd64
+        - main 
   deps:
     - libcpptrace1
     - libdwarf1
