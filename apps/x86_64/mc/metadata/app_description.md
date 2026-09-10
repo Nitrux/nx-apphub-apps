@@ -2,7 +2,7 @@
 
 ## Summary
 
-Midnight Commander - a powerful file manager
+Midnight Commander - a powerful file manager.
 
 ## Description
 
