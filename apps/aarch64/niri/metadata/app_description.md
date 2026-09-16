@@ -2,7 +2,7 @@
 
 ## Summary
 
-Flexbile QtQuick based desktop shell toolkit. 
+Flexbile QtQuick based desktop shell toolkit
 
 ## Description
 
