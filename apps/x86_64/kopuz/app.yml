@@ -1,0 +1,85 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: kopuz
+  version: 0.16.2
+  binarypath: /usr/bin/kopuz
+  os-target: 7.0.0
+  distrorepo:
+    - distro: nitrux
+      release: duke
+      arch: amd64
+    - distro: debian-snapshot
+      snapshot: 20260725T202958Z
+      release: testing
+      arch: amd64
+      components:
+        - main
+  deps:
+    - kopuz
+    - libenchant-2-2
+    - libharfbuzz-icu0
+    - libhidapi-hidraw0
+    - libhyphen0
+    - libjavascriptcoregtk-4.1-0
+    - libmanette-0.2-0
+    - libwebkit2gtk-4.1-0
+    - libxdo3
+  runtime: uruntime
+
+apprunconf:
+  exec: /usr/bin/kopuz
+  setpath: /usr/bin
+  setlibpath: /usr/lib
+  envvars:
+    DISPLAY: "$DISPLAY"
+    GDK_BACKEND: "wayland,x11"
+    WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+  prebuild-commands:
+    - "mkdir -p $APPDIR/usr/lib/x86_64-linux-gnu/dri $APPDIR/usr/lib/x86_64-linux-gnu/GL $APPDIR/usr/lib/x86_64-linux-gnu/vulkan $APPDIR/usr/lib/x86_64-linux-gnu/alsa-lib $APPDIR/usr/lib/x86_64-linux-gnu/gstreamer-1.0 $APPDIR/usr/lib/x86_64-linux-gnu/pipewire-0.3 $APPDIR/usr/lib/x86_64-linux-gnu/pulseaudio $APPDIR/usr/lib/x86_64-linux-gnu/spa-0.2"
+
+sandbox:
+  type: bwrap
+  dev: true
+  proc: true
+  tmpfs: true
+  unshare-uts: true
+  die-with-parent: true
+  bind:
+    - "$HOME:$HOME"
+    - ~/.config:~/.config
+    - ~/.local:~/.local
+    - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
+    - /dev/shm:/dev/shm
+  ro-bind:
+    - "$APPDIR:$APPDIR"
+    - /lib:/lib
+    - /lib64:/lib64
+    - /usr:/usr
+    - "$APPDIR/usr/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu"
+    - /etc:/etc
+  bind-try:
+    - /run/dbus:/run/dbus
+    - /run/udev:/run/udev
+    - /tmp:/tmp
+  ro-bind-try:
+    - /usr/lib/x86_64-linux-gnu/dri:/usr/lib/x86_64-linux-gnu/dri
+    - /usr/lib/x86_64-linux-gnu/GL:/usr/lib/x86_64-linux-gnu/GL
+    - /usr/lib/x86_64-linux-gnu/vulkan:/usr/lib/x86_64-linux-gnu/vulkan
+    - /usr/lib/x86_64-linux-gnu/alsa-lib:/usr/lib/x86_64-linux-gnu/alsa-lib
+    - /usr/lib/x86_64-linux-gnu/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0
+    - /usr/lib/x86_64-linux-gnu/pipewire-0.3:/usr/lib/x86_64-linux-gnu/pipewire-0.3
+    - /usr/lib/x86_64-linux-gnu/pulseaudio:/usr/lib/x86_64-linux-gnu/pulseaudio
+    - /usr/lib/x86_64-linux-gnu/spa-0.2:/usr/lib/x86_64-linux-gnu/spa-0.2
+  bwrap-env:
+    - HOME: "$HOME"
+    - LANG: "en_US.UTF-8"
+    - DISPLAY: "$DISPLAY"
+    - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+
+integration:
+  type: gui

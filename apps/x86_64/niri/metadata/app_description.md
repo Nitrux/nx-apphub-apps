@@ -2,7 +2,7 @@
 
 ## Summary
 
-A scrollable-tiling Wayland compositor.
+A scrollable-tiling Wayland compositor
 
 ## Description
 

@@ -1,0 +1,72 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: midori
+  version: 11.9-0
+  binarypath: /opt/midori/midori
+  os-target: 7.0.0
+  distrorepo:
+    - distro: nitrux
+      release: duke
+      arch: arm64
+  deps:
+    - midori
+  runtime: uruntime
+
+apprunconf:
+  exec: /usr/bin/midori-startup-wrapper
+  setpath: /opt/midori:/usr/bin
+  setlibpath: /opt/midori:/usr/lib
+  envvars:
+    DISPLAY: "$DISPLAY"
+    GDK_BACKEND: "wayland,x11"
+    MOZ_ENABLE_WAYLAND: "1"
+    WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+  prebuild-commands:
+    - "cp $APPDIR/opt/midori/midori $APPDIR/opt/midori/midori-app"
+    - "sed -i 's#^Icon=.*#Icon=midori-ng#' $APPDIR/usr/share/applications/midori-ng.desktop"
+    - "mkdir -p $APPDIR/usr/share/icons/hicolor/scalable"
+    - "rm -f $APPDIR/usr/share/icons/hicolor/scalable/midori-ng.svg"
+    - "cp $APPDIR/usr/share/pixmaps/midori-ng.svg $APPDIR/usr/share/icons/hicolor/scalable/midori-ng.svg"
+
+sandbox:
+  type: bwrap
+  dev: true
+  proc: true
+  tmpfs: true
+  unshare-uts: true
+  die-with-parent: true
+  bind:
+    - "$HOME:$HOME"
+    - ~/.config:~/.config
+    - ~/.local:~/.local
+    - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
+    - /dev/shm:/dev/shm
+    - /dev/dri:/dev/dri
+  ro-bind:
+    - "$APPDIR:$APPDIR"
+    - /lib:/lib
+    - /lib64:/lib64
+    - /usr:/usr
+    - /etc/alternatives:/etc/alternatives
+    - /etc/fonts:/etc/fonts
+    - /etc/ssl:/etc/ssl
+    - /etc/xdg:/etc/xdg
+  bind-try:
+    - /run/dbus:/run/dbus
+    - /run/udev:/run/udev
+    - /tmp:/tmp
+  ro-bind-try:
+    - /sys:/sys
+  bwrap-env:
+    - HOME: "$HOME"
+    - LANG: "en_US.UTF-8"
+    - DISPLAY: "$DISPLAY"
+    - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+
+integration:
+  type: gui

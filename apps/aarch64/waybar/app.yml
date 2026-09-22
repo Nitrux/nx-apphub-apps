@@ -1,0 +1,83 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: waybar
+  version: 0.15.0-1
+  binarypath: /usr/bin/waybar
+  os-target: 7.0.0
+  distrorepo:
+    - distro: debian-snapshot
+      snapshot: 20260725T202958Z
+      release: testing
+      arch: arm64
+      components:
+        - main
+  deps:
+    - init-system-helpers
+    - libatkmm-1.6-1v5
+    - libcairomm-1.0-1v5
+    - libdbusmenu-glib4
+    - libdbusmenu-gtk3-4
+    - libevdev2
+    - libfmt10
+    - libglibmm-2.4-1t64
+    - libgps32
+    - libgtk-3-0t64
+    - libgtk-layer-shell0
+    - libgtkmm-3.0-1t64
+    - libinput10
+    - libjack-jackd2-0
+    - libjsoncpp26
+    - libmpdclient2t64
+    - libnl-3-200
+    - libnl-genl-3-200
+    - libpangomm-1.4-1v5
+    - libpipewire-0.3-0t64
+    - libplayerctl2
+    - libpulse0
+    - libsigc++-2.0-0v5
+    - libsndio7.0
+    - libspdlog1.15
+    - libudev1
+    - libupower-glib3
+    - libxkbregistry0
+    - waybar
+  runtime: uruntime
+
+apprunconf:
+  setpath: "/usr/bin"
+  setlibpath: "/usr/lib"
+  exec: "/usr/bin/waybar"
+  envvars:
+    GDK_BACKEND: "wayland,x11"
+    WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+    XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+
+sandbox:
+  type: bwrap
+  ro-root: true
+  dev: true
+  proc: true
+  die-with-parent: true
+  bind:
+    - "$HOME:$HOME"
+    - ~/.config:~/.config
+    - ~/.local:~/.local
+    - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
+    - /dev/shm:/dev/shm
+  bind-try:
+    - /run/dbus:/run/dbus
+    - /run/udev:/run/udev
+    - /tmp:/tmp
+  bwrap-env:
+    - HOME: "$HOME"
+    - LANG: "en_US.UTF-8"
+    - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    - DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
+    - DBUS_SYSTEM_BUS_ADDRESS: "unix:path=/run/dbus/system_bus_socket"
+
+integration:
+  type: cli

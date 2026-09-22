@@ -3,9 +3,9 @@
 
 buildinfo:
   name: niri
-  version: v25.11
+  version: 26.04
   binarypath: /usr/bin/niri
-  os-target: 6.1.0
+  os-target: 7.0.0
   distrorepo: 
     - distro: nitrux
       release: duke

@@ -1,0 +1,77 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: crystal-dock
+  version: 2.16-1
+  binarypath: /usr/bin/crystal-dock
+  os-target: 7.0.0
+  distrorepo:
+    - distro: debian-snapshot
+      snapshot: 20260725T202958Z
+      release: testing
+      arch: arm64
+      components:
+        - main
+  deps:
+    - crystal-dock
+    - liblayershellqtinterface6
+    - libqt6core6t64
+    - libqt6dbus6
+    - libqt6gui6
+    - libqt6waylandclient6
+    - libqt6widgets6
+    - libwayland-client0
+  runtime: uruntime
+
+apprunconf:
+  exec: /usr/bin/crystal-dock
+  setpath: /usr/bin
+  setlibpath: /usr/lib
+  envvars:
+    QT_QPA_PLATFORM: "wayland;xcb"
+    WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
+    XDG_DATA_DIRS: "$APPDIR/usr/share:$HOME/.local/share:/usr/local/share:/usr/share"
+    XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+    DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
+
+sandbox:
+  type: bwrap
+  dev: true
+  proc: true
+  tmpfs: true
+  unshare-uts: true
+  die-with-parent: true
+  bind:
+    - "$HOME:$HOME"
+    - ~/.config:~/.config
+    - ~/.local:~/.local
+    - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
+    - /dev/shm:/dev/shm
+    - /dev/dri:/dev/dri
+  ro-bind:
+    - "$APPDIR:$APPDIR"
+    - /lib:/lib
+    - /lib64:/lib64
+    - /usr:/usr
+    - /etc/alternatives:/etc/alternatives
+    - /etc/fonts:/etc/fonts
+    - /etc/ssl:/etc/ssl
+    - /etc/xdg:/etc/xdg
+  bind-try:
+    - /run/dbus:/run/dbus
+    - /run/udev:/run/udev
+    - /tmp:/tmp
+  ro-bind-try:
+    - /sys:/sys
+  bwrap-env:
+    - HOME: "$HOME"
+    - LANG: "en_US.UTF-8"
+    - DISPLAY: "$DISPLAY"
+    - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+
+integration:
+  type: gui

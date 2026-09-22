@@ -1,0 +1,38 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: cage
+  version: 0.3.1-1
+  binarypath: /usr/bin/cage
+  os-target: 7.0.0
+  distrorepo:
+    - distro: debian-snapshot
+      snapshot: 20260725T202958Z
+      release: testing
+      arch: arm64
+      components:
+        - main
+  deps:
+    - cage
+    - libxcb-ewmh2
+    - libwayland-server0
+    - libliftoff0
+    - libwlroots-0.20
+    - libxkbcommon0
+  runtime: uruntime
+
+apprunconf:
+  exec: /usr/bin/cage
+  setpath: /usr/bin
+  setlibpath: /usr/lib
+  envvars:
+    WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+
+sandbox:
+  type: none
+
+integration:
+  type: cli

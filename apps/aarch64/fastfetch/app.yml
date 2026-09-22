@@ -5,7 +5,7 @@ buildinfo:
   name: fastfetch
   version: 2.63.1
   binarypath: /usr/bin/fastfetch
-  os-target: 6.1.0
+  os-target: 7.0.0
   distrorepo:
     - distro: nitrux
       release: duke

@@ -19,6 +19,8 @@ APPDIR=$(dirname "$(dirname "$(dirname "$REALPATH")"))")
 
 "$APPDIR/usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd" &
 sleep 1
+"$APPDIR/usr/lib/x86_64-linux-gnu/libexec/kglobalacceld" &
+sleep 1
 "$APPDIR/usr/bin/kded6" &
 sleep 1
 

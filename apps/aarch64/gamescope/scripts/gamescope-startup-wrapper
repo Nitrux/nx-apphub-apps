@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2026 <Nitrux Latinoamericana S.C. <hello@nxos.org>>
+
+
+# -- Exit on errors.
+
+set -eu
+
+
+# -- Get the running directory of the AppImage.
+
+REALPATH=$(readlink -f "$0")
+APPDIR=$(dirname "$(dirname "$(dirname "$REALPATH")")")
+
+
+# -- Make Gamescope helper tools available.
+
+export PATH="$APPDIR/usr/bin:$APPDIR/usr/games:${PATH:-}"
+export XDG_DATA_DIRS="$APPDIR/usr/share:${XDG_DATA_DIRS:-}"
+export GAMESCOPE_SCRIPT_PATH="$APPDIR/usr/share/gamescope/scripts"
+
+
+# -- Make Vulkan ICDs discoverable.
+
+if [ -z "${VK_DRIVER_FILES+x}" ] && [ -z "${VK_ICD_FILENAMES+x}" ]; then
+  VULKAN_ICD_FILES=()
+
+  for ICD_DIRECTORY in \
+      "$APPDIR/usr/share/vulkan/icd.d" \
+      /usr/share/vulkan/icd.d \
+      /etc/vulkan/icd.d
+  do
+    if [ -d "$ICD_DIRECTORY" ]; then
+      for ICD_FILE in "$ICD_DIRECTORY"/*.json; do
+        if [ -f "$ICD_FILE" ]; then
+          VULKAN_ICD_FILES+=("$ICD_FILE")
+        fi
+      done
+    fi
+  done
+
+  if [ "${#VULKAN_ICD_FILES[@]}" -gt 0 ]; then
+    VULKAN_DRIVER_FILES="${VULKAN_ICD_FILES[0]}"
+
+    for ICD_FILE in "${VULKAN_ICD_FILES[@]:1}"; do
+      VULKAN_DRIVER_FILES="$VULKAN_DRIVER_FILES:$ICD_FILE"
+    done
+
+    export VK_DRIVER_FILES="$VULKAN_DRIVER_FILES"
+  fi
+fi
+
+
+# -- Run Gamescope.
+
+exec "$APPDIR/usr/bin/gamescope" "$@"

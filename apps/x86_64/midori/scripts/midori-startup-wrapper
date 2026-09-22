@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2026 <Nitrux Latinoamericana S.C. <hello@nxos.org>>
+
+set -eu
+
+REALPATH=$(readlink -f "$0")
+APPDIR=$(dirname "$(dirname "$(dirname "$REALPATH")")")
+
+export PATH="$APPDIR/opt/midori:$APPDIR/usr/bin:${PATH:-}"
+export LD_LIBRARY_PATH="$APPDIR/opt/midori:$APPDIR/usr/lib:${LD_LIBRARY_PATH:-}"
+
+exec "$APPDIR/opt/midori/midori-app" "$@"

@@ -3,12 +3,12 @@
 
 buildinfo:
   name: plasma-desktop
-  version: 4:6.6.4-1
+  version: 4:6.6.5-2
   binarypath: /usr/bin/plasmashell
-  os-target: 6.1.0
+  os-target: 7.0.0
   distrorepo:
     - distro: debian-snapshot
-      snapshot: 20260514T142722Z
+      snapshot: 20260725T202958Z
       release: testing
       arch: amd64
       components:
@@ -16,22 +16,55 @@ buildinfo:
   deps:
     - kactivitymanagerd
     - kded6
+    - kglobalacceld
     - kwin-common
     - kwin-wayland
     - libaccounts-glib0
     - libaccounts-qt6-1
     - libibus-1.0-5
     - libkaccounts6-2
+    - libkf6calendarevents6
+    - libkf6holidays6
+    - libkf6i18nlocaledata6
+    - libkf6idletime6
+    - libkf6itemmodels6
+    - libkf6runner6
+    - libkf6userfeedbackcore6
+    - libkglobalacceld0
     - libkglobalaccelmodel6
+    - libkirigamiaddonscomponents6
+    - libklipper6
+    - libkmpris6
+    - libknighttime0
+    - libkpipewire6
+    - libksysguardformatter2
+    - libkworkspace6-6
+    - libnotificationmanager1
     - libplasma5support6
+    - libprocesscore10
+    - libqalculate23
+    - libqt6test6
+    - libquickcharts1
+    - libquickchartscontrols1
     - libscim8v5
     - libsignon-qt6-1
+    - libtaskmanager6
+    - libxkbregistry0
     - milou
     - plasma-desktop
     - plasma-desktop-data
     - plasma-workspace
     - plasma-workspace-data
+    - qml6-module-org-kde-coreaddons
+    - qml6-module-org-kde-draganddrop
+    - qml6-module-org-kde-kirigamiaddons-components
+    - qml6-module-org-kde-kitemmodels
+    - qml6-module-org-kde-kwindowsystem
+    - qml6-module-org-kde-pipewire
+    - qml6-module-org-kde-plasma-clock
     - qml6-module-org-kde-plasma-plasma5support
+    - qml6-module-org-kde-plasma-workspace
+    - qml6-module-org-kde-quickcharts
     - x11-utils
     - x11-xserver-utils
   runtime: uruntime

@@ -2,7 +2,7 @@
 
 ## Summary
 
-Plasma Desktop graphical environment.
+Plasma Desktop graphical environment
 
 ## Description
 

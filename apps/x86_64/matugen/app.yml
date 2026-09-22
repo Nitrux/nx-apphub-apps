@@ -1,0 +1,28 @@
+# YAML build file
+# nx-apphub-cli 2025 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: matugen
+  version: 4.1.0ppa10
+  binarypath: /usr/bin/matugen
+  os-target: 7.0.0
+  distrorepo: 
+    - distro: nitrux
+      release: duke
+      arch: amd64
+  deps:
+    - matugen
+  runtime: uruntime
+
+apprunconf:
+  exec: /usr/bin/matugen
+  setpath: /usr/bin
+  setlibpath: /usr/lib
+  envvars: {}
+  prebuild-commands: []
+
+sandbox:
+  type: none
+
+integration:
+  type: cli

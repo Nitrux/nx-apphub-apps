@@ -3,12 +3,12 @@
 
 buildinfo:
   name: nano
-  version: 9.0-1
+  version: 9.1-1
   binarypath: /usr/bin/nano
-  os-target: 6.1.0
+  os-target: 7.0.0
   distrorepo:
     - distro: debian-snapshot
-      snapshot: 20260514T142722Z
+      snapshot: 20260725T202958Z
       release: testing
       arch: arm64
       components:
