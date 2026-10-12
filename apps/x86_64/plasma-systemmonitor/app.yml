@@ -1,0 +1,134 @@
+# YAML build file
+# nx-apphub-cli 2026 (c) Nitrux Latinoamericana S.C.
+
+buildinfo:
+  name: plasma-systemmonitor
+  version: 6.6.5-2
+  binarypath: /usr/bin/plasma-systemmonitor
+  os-target: 7.0.0
+  distrorepo:
+    - distro: debian-snapshot
+      snapshot: 20260725T202958Z
+      release: testing
+      arch: amd64
+      components:
+        - main
+  deps:
+    - ksystemstats
+    - libkf6configcore6
+    - libkf6configgui6
+    - libkf6coreaddons6
+    - libkf6crash6
+    - libkf6dbusaddons6
+    - libkf6globalaccel6
+    - libkf6i18n6
+    - libkf6i18nqml6
+    - libkf6itemmodels6
+    - libkf6kiogui6
+    - libkf6newstuffcore6
+    - libkf6service-bin
+    - libkf6service6
+    - libkf6windowsystem6
+    - libksysguard-bin
+    - libksysguard-data
+    - libksysguardformatter2
+    - libksysguardsensorfaces2
+    - libksysguardsensors2
+    - libksysguardsystemstats2
+    - libprocesscore10
+    - libquickcharts1
+    - libquickchartscontrols1
+    - libqt6core6t64
+    - libqt6dbus6
+    - libqt6gui6
+    - libqt6labsplatform6
+    - libqt6qml6
+    - libqt6qmlmodels6
+    - libqt6quick6
+    - libqt6quicktemplates2-6
+    - libqt6widgets6
+    - plasma-systemmonitor
+    - plasma-version
+    - python3
+    - qml6-module-org-kde-coreaddons
+    - qml6-module-org-kde-desktop
+    - qml6-module-org-kde-iconthemes
+    - qml6-module-org-kde-kirigami
+    - qml6-module-org-kde-kirigamiaddons-components
+    - qml6-module-org-kde-kitemmodels
+    - qml6-module-org-kde-kquickcontrolsaddons
+    - qml6-module-org-kde-ksysguard
+    - qml6-module-org-kde-newstuff
+    - qml6-module-org-kde-quickcharts
+    - qml6-module-qt5compat-graphicaleffects
+    - qml6-module-qt-labs-platform
+    - qml6-module-qt-labs-qmlmodels
+    - qml6-module-qtcore
+    - qml6-module-qtqml
+    - qml6-module-qtqml-models
+    - qml6-module-qtqml-workerscript
+    - qml6-module-qtquick
+    - qml6-module-qtquick-controls
+    - qml6-module-qtquick-dialogs
+    - qml6-module-qtquick-layouts
+    - qml6-module-qtquick-templates
+    - qml6-module-qtquick-window
+  runtime: uruntime
+
+apprunconf:
+  exec: /usr/bin/plasma-systemmonitor-startup-wrapper
+  setpath: /usr/bin
+  setlibpath: /usr/lib
+  envvars:
+    KDEDIRS: "$APPDIR/usr:/usr"
+    PLASMA_USE_SYSTEMD: "0"
+    QT_QPA_PLATFORM: "wayland;xcb"
+    QT_QPA_PLATFORMTHEME: "kde"
+    QT_STYLE_OVERRIDE: "Nitrux"
+    QT_QUICK_CONTROLS_STYLE: "org.kde.desktop"
+    QT_PLUGIN_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/plugins:/usr/lib/x86_64-linux-gnu/qt6/plugins"
+    QT_QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml:/usr/lib/x86_64-linux-gnu/qt6/qml"
+    QML_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml:/usr/lib/x86_64-linux-gnu/qt6/qml"
+    QML2_IMPORT_PATH: "$APPDIR/usr/lib/x86_64-linux-gnu/qt6/qml:/usr/lib/x86_64-linux-gnu/qt6/qml"
+    SESSION_MANAGER: ""
+    XKB_CONFIG_ROOT: "$APPDIR/usr/share/X11/xkb"
+    XDG_CURRENT_DESKTOP: "KDE"
+    KDE_FULL_SESSION: "true"
+    KDE_SESSION_VERSION: "6"
+    XDG_CONFIG_DIRS: "$HOME/.config/kdedefaults:/etc/xdg"
+    XDG_DATA_DIRS: "$APPDIR/usr/share:$XDG_DATA_DIRS"
+    DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
+    XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    KSERVICE_FORCE_KDEGLOBALS: "1"
+    KDE_APPLICATIONS_AS_SCOPE: "1"
+
+sandbox:
+  type: bwrap
+  ro-root: true
+  dev: true
+  proc: true
+  die-with-parent: true
+  bind:
+    - "$HOME:$HOME"
+    - ~/.config:~/.config
+    - ~/.local:~/.local
+    - "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR"
+    - /dev/shm:/dev/shm
+    - /dev/dri/renderD128:/dev/dri/renderD128
+  bind-try:
+    - /run/dbus:/run/dbus
+    - /run/udev:/run/udev
+    - /tmp:/tmp
+  ro-bind-try:
+    - ~/.config/kdedefaults:~/.config/kdedefaults
+  bwrap-env:
+    - HOME: "$HOME"
+    - LANG: "en_US.UTF-8"
+    - XDG_RUNTIME_DIR: "$XDG_RUNTIME_DIR"
+    - WAYLAND_DISPLAY: "$WAYLAND_DISPLAY"
+    - DBUS_SESSION_BUS_ADDRESS: "$DBUS_SESSION_BUS_ADDRESS"
+    - DBUS_SYSTEM_BUS_ADDRESS: "unix:path=/run/dbus/system_bus_socket"
+
+integration:
+  type: gui
+  launcher: org.kde.plasma-systemmonitor.desktop
